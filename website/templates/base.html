@@ -1,0 +1,178 @@
+<!DOCTYPE html>  {#indicate HTML code in doc and displayability in web browser#}
+<html>
+
+<head>  {#head opening Tag, contains meta information and links to external files#}
+    <meta charset="utf-8" />    {#UTF-8 encoding, characters from diff. languages are displayed correctly hereby #}
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> {#viewport settings for the device on which the webpage is displayed, proper 
+    scaling on diff screen sizes#}              {#cdn#}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"  
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />{#das hier sind sozusagen libraries für bootstrap
+    das setzt dann das alignment etc für das aussehen der bootstrapelemte, this linke links HTML doc to an external CSS file, links to the
+    Bootstrap framework, which provides styles and layouts for the webpage #}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous" />{#link to external CSS file, includes add icons from the Font Awesome library#}
+    <title>{% block title %}Home{% endblock %}</title> {#title bar of the browser, Home may be overridden in diff
+    parts of the code due to jinja templ language #}
+</head> {#head closing Tag#}
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">{#creates nav bar at top of webpage with dark background#}
+        <div class="d-flex justify-content-between">{#wrap <a> elem and button inside, flex container aligns elements on left side#}
+            <a class="navbar-brand" href="/">NiceNotes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">{#creates a button that collapses or expands navbar when clicked#}
+                <span class="navbar-toggler-icon"></span>{#using an icon to indicate buttons porpuse#}
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">{#div element contains navigation links and collapses or expands based on the state of the button above#}
+            <div class="navbar-nav">{#div element representing a list of navigation links#}
+                {% if user.is_authenticated %}
+                <a class="nav-item nav-link" id="home" style="color: #fafdfb" href="/">Home</a>
+                <a class="nav-item nav-link" id="logout" style="color: #fafdfb" href="/logout">Logout</a>
+                {% else %}
+                <a class="nav-item nav-link" id="login" style="color: #fafdfb" href="/login">Login</a>
+                <a class="nav-item nav-link" id="signUp" style="color: #fafdfb" href="/sign-up">Sign Up</a>
+                {% endif %}
+            </div>
+            {% if user.is_authenticated %}
+            <div class="nav-item nav-text ml-auto" style="color: #fafdfb">Hallo {{user.first_name}}</div>
+            {% else %}
+            <div class="nav-item nav-text ml-auto" style="color: #fafdfb">Hallo Guest</div>
+            {% endif %}
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {# messages gets assigned any flashed messages, which are used to display temporary notifications
+    or alterts to the user 
+    messages ist variable die Liste hält mit flashmessages werten #}
+    {#getflashedmessages ist methode die vorher geflashte messages zurückgibt 
+    withmessages speichert die messages #}
+    {% if messages %} {# checks if there are any messages available so if messages available == true execute foll code#}
+    {%for category, message in messages %} {# loop iterates over each message in messages variable, for each iteration
+    the category and message values are assigned to respective variables  #}
+    {%if category =='error' %} {# if category error is true following code is ran #}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">{# div element representing alert (alter-danger) , class attribute adds style (red 
+    and as a danger message, role attribute describes the purpose of the element, i.e. alert) in a nutshell: creates a box that will show warning message in red #}
+        {{message}} {# message is placeholder for value that will be filled dynamically #}
+        <button type="button" class="close" data-dismiss="alert">{# button (no default behaviour), class="close" adds styling, data-dismiss="alert"
+        attribute tells it to dismiss or close the alert when clicked #}
+            <span aria-hidden="true">&times;</span> {# &times is the "multiplication" x so that makes the button look like a lil x  #}
+        </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">{# altert altert-success https://getbootstrap.com/docs/4.0/components/alerts/ 
+    this line basically opens a div element w specif CSS classes, creating a styled alert box that indicates a successful message (success is green)#}
+        {{message}} {#placeholder for dynamic content #}
+        <button type="button" class="close" data-dismiss="alert">{# button (no default behaviour), class="close" adds styling, data-dismiss="alert"
+        attribute tells it to dismiss or close the alert when clicked #}
+            <span aria-hidden="true">&times;</span> {#span element that contains the "x" times multiplication symbol to represent button visually,
+            aria-hidden="true" removes the element and all its children from the acessibility tree, since its an purely decorative icon#}
+        </button>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif%}
+    {% endwith%}{# end statements for enfif, endfor, endif and endwith #}
+
+
+    <div class="container"> 
+    
+    {%block content%}
+    {% endblock %}
+    
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>{#adds JavaScript library - Jquery from foreign source in order to interact w HTML elements and simplify javascriptcode #}
+        {#Jquery#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>  {#loads poppers.js to add to bootstrap in order to position html elements properly, popper.min.js, src is path, 
+        SHA-384-Hash to ensure the file has not been altered during downloading, crossorigin="anonymous" says the script is ran in an anonymous context, which in turn 
+        provides another layer of safety für the website and the user. Anonymous context is normally used if a script does not need specific authorization and
+        only needs t oaccess certain functions or libraries. the crossorigin anonymous says that the script has no cross origin limitations and can be
+        ran from any source (Domain protocol or port) without needing specific authorization #}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script> {# source url of the javascript file , it points to the version of the bootstrap library hosted on the maxcdn delivery network
+        integrity sha ... is the integrity attribute containing the hash value that ensures teh file hat not been tempered with during transmossion and provides
+        a security measure to verify the integrity and authenticity of the file
+        corrorigin - again makes it so that the script does not require any specific credentials or sensitive data from the server. overall
+        this bootstrap javascript file allows us to utilize the interactive components and functionality provided by bootstrap dropdown menus, models and more ..#}
+
+
+    {# code block is written in jinja templating language and is used to define Javascript functions within an html template#}
+    {% block javascript %}                              {#block of code specifically for JavaScript as a placeholder, which can be overridden in child templates#}
+    <script type="text/javascript">                     //specifies javascript block within the html file 
+        function deleteNote(noteId) {                   //defining JScript function named "deleteNote" with paramater "noteID" (to delete notes...)
+            if (!confirm("Sicher löschen?")) return;    //Fast return - in JScript is a technique used to exit a function early and prevent the xecution
+                                                        //early within that function when condition is met. if sicher löschen is not confirmed, further code wont be executed!
+            
+            
+            /*code below initiates a network reques t to the server at the "/delete-note" endpoint using the fetch API (is more efficient and convenient 
+            Fetch API allows HTTP reques ts to servers and retrieve data in form of responses, it provides built in methods and options for handling diff types
+            of reques ts such as GET POST PUT DELETE, you can use it to fetch data from APIs send data to a server or perform other actions that involve comm
+            with a web server. FETCH API returns a Promise, which is a special JScript object that represents the eventual completion or failure of an 
+            asyncrhonous operation. You can use methods like .then() and .catch() to handle the response and then process the data returned by the server!
+            the fetch API is a powerful tool for working with server-side resources and exchanging data between the client and server in web applications
+            it simplifies the process of making http requests and provides a more modern nad intuitive way of working with network and requests in Javascript
+            source: chatbot wikipedia and others...
+            */
+            fetch("/delete-note", {
+                method: "POST",
+                body: JSON.stringify({ noteId: noteId }),
+            }).then((_res) => {
+                window.location.href = "/";
+            });
+            /*fetch delete note initiates a network request to the server at "/delete-note" endpoint using fetch api, HTTP POST reques t t odelete a certain note 
+            body JSON.stringify({noteID:noteID}) sets the request body by converting a Jscript object containing the noteID parameter into a JSON String
+            (In the code you provided, JSON.stringify({ noteId: noteId }) is used to convert a JavaScript object into a JSON string representation. 
+                The JSON.stringify() method takes an object as input and returns a string containing the JSON representation of that object. 
+                JSON string can then be sent to the server as part of the HTTP request payload.)
+             }).then((_res) => {    starts a promise chain, once the server responds to the requests, the following code shall be executed
+             window.location.href = "/";    this redirects the user to the root URL ("/") after the note deleteion was successful
+
+            
+            
+            */
+        }        
+        function checkNote(noteId){
+            fetch('/check-note', {
+                method: "POST",
+                body: JSON.stringify({noteId: noteId}),
+            /*function checkNote(noteId){   defines another Jscript function named "checkNote" with a parameter "noteID" which is used to check a note
+            fetch('/check-note', {  initiates a network request to the server at the "/check-note" endpoint using the fetch API, it performs an http POST request
+            to check the status of a specific note
+            method: "POST", specifies that the request method is POST indicates that the server should perform a checking operation
+            body: JSON.stringify({noteId: noteId}),     setting request body by converting a Jscript object containing the "noteID" parameter
+            into a JSON string
+             */
+            
+            }).then((_res) => {
+                window.location.href ="/";
+            });
+        }
+            /*  }).then((_res) => {     start promise chain, once server responds to request, following code shall be executed
+             window.location.href ="/";     redirects user to "/" root url after the note check is completed
+                     
+            */
+    </script>  {#ends the javascript code block#}
+    {% endblock %}  {#ends the block defined as JavaScript block in the template#}
+
+    {# script below is used to include JavaScript code into an HTML documnet
+    type="text/javascript"  attribute specifies that content inside the script tag is javascript code
+    src=    "{{ url_for('static', filename='index.js') }}"      attribute specifies the source (URL) of the javascript file to be included, 
+    uses a template expression {{ }}to generate the URL using a server side framework or template engine
+    url_for function (provided by web framework such as Flask..
+    this basically generates the URL for the "index.js" file located in the static directory)
+    
+    #}
+    <script     
+        type="text/javascript"
+        src=    "{{ url_for('static', filename='index.js') }}"
+
+</body> // closing tag of body element, marks end of visible content on the html documnet
+
+</html> // ends the end of the html element obv

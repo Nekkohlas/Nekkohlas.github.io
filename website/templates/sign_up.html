@@ -1,0 +1,54 @@
+{% extends "base.html" %} {%block title%}Sign Up{% endblock%}
+
+{%block content%}
+{#<h1>This is the sign up page</h1>#}
+
+<form method="POST">
+    <h3 align="center">Sign Up</h3>
+    {{ form.csrf_token }}
+    <div class="form-group">
+        {{ form.email(class_="form-control",placeholder="Email")}}
+    </div>
+    {% for error in form.email.errors %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ error }}
+
+    </div>
+    {% endfor %}
+
+    <div class="form-group">
+        {{ form.first_name(class_="form-control",placeholder="First Name")}}
+    </div>
+
+    {% for error in form.first_name.errors %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+    <br />
+    
+    
+    <div class="form-group">
+        {{ form.password(class_="form-control",placeholder="Password")}}
+    </div>
+
+    {% for error in form.password.errors %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+    
+    <div class="form-group">
+        {{ form.cp_password(class_="form-control",placeholder="Password wiederholen")}}
+    </div>
+
+    {% for error in form.password.errors %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+    <br />
+    <button type="submit" class ="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
