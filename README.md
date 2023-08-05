@@ -2,31 +2,36 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Zuständigkeiten](#section-1)
-- [Value Proposition](#section-2)
-- [App-Structure](#section-3)
-- [Data Model 4](#section-4)
-- [Section 5](#section-5)
-- [Section 6](#section-6)
-- [Section 7](#section-7)
-- [Section 8](#section-8)
-- [Section 9](#section-9)
-- [Conclusion](#conclusion)
+- [Projekt, Name, Eidesstattliche Erklärung](#Projekt)
+- [Value proposition](#section-1)
+- [App structure](#section-2)
+- [App behaviour](#section-3)
+- [Data model](#section-4)
+- [API reference](#section-5)
+- [Design decisions](#section-6)
+- [User evaluation](#section-7)
+- [Goals achieved and missed](#section-8)
+- [What I would improve in the future](#section-9)
+- [Peer review](#conclusion)
 
-## Introduction
+## Projekt, Name, Eidesstattliche Erklärung
+text zu projektbeschreibung
+
+## Daten zu mir 
+
+##Eidesstattliche 
 
 This is the introduction section.
 
-## Section 1
+## Value proposition
 
-This is the content of section 1.
+das hier kann wrs raus 
 
-## Section 2
+## Value proposition
 
 This is the content of section 2.
 
-## Section 3
+## 
 
 This is the content of section 3.
 
