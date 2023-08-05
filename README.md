@@ -16,7 +16,7 @@
 
 ## Projekt
 
-Text zu Projektbeschreibung.
+NiceNotes ist eine App bei der Nutzer*innen Notizen eintragen und nachverfolgen können. Mithilfe einer Anzeige können Nutzer*innen leicht nachvollziehen, wie viel Fortschritt schon gemacht wurde und was noch an Erledigungen zu tun ist. 
 
 ### Daten zu Gruppenmitgliedern, Eidesstattliche Erklärung
 **Name:** Nikolas Teuber, Matrikelnummer: 77211917927
@@ -25,9 +25,10 @@ Text zu Projektbeschreibung.
 Die oben genannten Teammitglieder erklären an Eides statt:
 
 Diese Arbeit wurde selbständig und eigenhändig erstellt. Die den benutzten Quellen wörtlich oder inhaltlich entommenen Stellen sind als solche kenntlich gemacht. Diese Erklärung gilt für jeglichen Inhalt und umfasst sowohl diese Dokumentation als auch den als Projektergebnis eingereichten Quellcode.
+
 ## Value proposition
 
-This is the content of the Value proposition section.
+NiceNotes richtet sich an Schüler innen und Studierende und bietet eine Alternative zu physischen Notizen. Insbesondere vergessliche Nutzer innen können durch die digitale Speicherung maximal profitieren, da sie somit die Notizzettel nichtmehr verlieren können. Inspiriert durch Videospiele in denen man Erfahrungspunkte sammelt und eine Fortschrittanzeige hat, soll NiceNotes auf diesen Wege auch bei der Motivation helfen, indem der Fortschritt der User ersichtlich ist. Durch das füllen der Anzeige soll das Belohnungssystem aktiviert und somit der User angespornt werden, seine Aufgaben zu erledigen.  
 
 ## App structure
 
