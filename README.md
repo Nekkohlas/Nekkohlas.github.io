@@ -1,65 +1,63 @@
-#Projekt NiceNotes
+# Projekt NiceNotes
 
 ## Table of Contents
 
-- [Projekt, Name, Eidesstattliche Erklärung](#Allgemeines)
-- [Value proposition](#section-1)
-- [App structure](#section-2)
-- [App behaviour](#section-3)
-- [Data model](#Data model)
-- [API reference](#section-5)
-- [Design decisions](#section-6)
-- [User evaluation](#section-7)
-- [Goals achieved and missed](#section-8)
-- [What I would improve in the future](#section-9)
-- [Peer review](#conclusion)
+- [Projekt, Name, Eidesstattliche Erklärung](#projekt-name-eidesstattliche-erklärung)
+- [Value proposition](#value-proposition)
+- [App structure](#app-structure)
+- [App behaviour](#app-behaviour)
+- [Data model](#data-model)
+- [API reference](#api-reference)
+- [Design decisions](#design-decisions)
+- [User evaluation](#user-evaluation)
+- [Goals achieved and missed](#goals-achieved-and-missed)
+- [What I would improve in the future](#what-i-would-improve-in-the-future)
+- [Peer review](#peer-review)
 
 ## Projekt, Name, Eidesstattliche Erklärung
-text zu projektbeschreibung
 
+Text zu Projektbeschreibung.
 
 ## Daten zu mir 
 
-##Eidesstattliche 
-
-This is the introduction section.
+Eidesstattliche Erklärung.
 
 ## Value proposition
 
-das hier kann wrs raus 
+This is the content of the Value proposition section.
 
-## Value proposition
+## App structure
 
-This is the content of section 2.
+This is the content of the App structure section.
 
-## 
+## App behaviour
 
-This is the content of section 3.
+This is the content of the App behaviour section.
 
 ## Data model
 
-This is the content of section 4.
+This is the content of the Data model section.
 
-## Section 5
+## API reference
 
-This is the content of section 5.
+This is the content of the API reference section.
 
-## Section 6
+## Design decisions
 
-This is the content of section 6.
+This is the content of the Design decisions section.
 
-## Section 7
+## User evaluation
 
-This is the content of section 7.
+This is the content of the User evaluation section.
 
-## Section 8
+## Goals achieved and missed
 
-This is the content of section 8.
+This is the content of the Goals achieved and missed section.
 
-## Section 9
+## What I would improve in the future
 
-This is the content of section 9.
+This is the content of the What I would improve in the future section.
 
-## Conclusion
+## Peer review
 
-This is the conclusion section.
+This is the content of the Peer review section.
