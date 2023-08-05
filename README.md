@@ -32,18 +32,17 @@ NiceNotes richtet sich an Schüler innen und Studierende und bietet eine Alterna
 
 ## App structure
 
-This is the content of the App structure section.
+Aufbau der App, ggf Diagramm
 
 ## App behaviour
 
-This is the content of the App behaviour section.
-
+User walkthrough, ggf use case 
 ## Data model
 
 This is the content of the Data model section.
-
+Darstellen, wie 
 ## API reference
-
+Section / modules 
 This is the content of the API reference section.
 
 ## Design decisions
