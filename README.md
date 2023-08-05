@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Projekt, Name, Eidesstattliche Erklärung](#projekt-name-eidesstattliche-erklärung)
+- [Projekt, Name, Eidesstattliche Erklärung](#projekt)
 - [Value proposition](#value-proposition)
 - [App structure](#app-structure)
 - [App behaviour](#app-behaviour)
@@ -14,14 +14,18 @@
 - [What I would improve in the future](#what-i-would-improve-in-the-future)
 - [Peer review](#peer-review)
 
-## Projekt, Name, Eidesstattliche Erklärung
+## Projekt
 
 Text zu Projektbeschreibung.
 
-## Daten zu mir 
+### Daten zu Gruppenmitgliedern, Eidesstattliche Erklärung
+**Name:** Nikolas Teuber, Matrikelnummer: 77211917927
 
-Eidesstattliche Erklärung.
+###Eidesstattliche Erklärung.
+Eidesstattliche Erklärung
+Die oben genannten Teammitglieder erklären an Eides statt:
 
+Diese Arbeit wurde selbständig und eigenhändig erstellt. Die den benutzten Quellen wörtlich oder inhaltlich entommenen Stellen sind als solche kenntlich gemacht. Diese Erklärung gilt für jeglichen Inhalt und umfasst sowohl diese Dokumentation als auch den als Projektergebnis eingereichten Quellcode.
 ## Value proposition
 
 This is the content of the Value proposition section.
