@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-- [Projekt, Name, Eidesstattliche Erklärung](#Projekt)
+- [Projekt, Name, Eidesstattliche Erklärung](#Allgemeines)
 - [Value proposition](#section-1)
 - [App structure](#section-2)
 - [App behaviour](#section-3)
-- [Data model](#section-4)
+- [Data model](#Data model)
 - [API reference](#section-5)
 - [Design decisions](#section-6)
 - [User evaluation](#section-7)
@@ -16,6 +16,7 @@
 
 ## Projekt, Name, Eidesstattliche Erklärung
 text zu projektbeschreibung
+
 
 ## Daten zu mir 
 
@@ -35,7 +36,7 @@ This is the content of section 2.
 
 This is the content of section 3.
 
-## Section 4
+## Data model
 
 This is the content of section 4.
 
