@@ -1,0 +1,3 @@
+## Value proposition
+
+NiceNotes richtet sich an Schüler innen und Studierende und bietet eine Alternative zu physischen Notizen. Insbesondere vergessliche Nutzer innen können durch die digitale Speicherung maximal profitieren, da sie somit die Notizzettel nichtmehr verlieren können. Inspiriert durch Videospiele in denen man Erfahrungspunkte sammelt und eine Fortschrittanzeige hat, soll NiceNotes auf diesen Wege auch bei der Motivation helfen, indem der Fortschritt der User ersichtlich ist. Durch das füllen der Anzeige soll das Belohnungssystem aktiviert und somit der User angespornt werden, seine Aufgaben zu erledigen.  
