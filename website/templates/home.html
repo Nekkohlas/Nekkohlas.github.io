@@ -19,18 +19,18 @@ position:absolute cc property and right: 50% to align it to the r ight side of i
 </div>
 
 <ul class="list-group list-group-flush" id="notes"> {#unordered list to display collection of items, id="notes" assigns the "notes" identifier to the ul element#}
-    {% for note in user.notes %}    {# loop iterating over each "note" object in the "user.notes" list - the loop will execute the following lines of code for each note#}
-    <li class ="list-group-item">   {# HTML <li> element with class "list-group-item" representing a single item in the list#}
-        {% if note.done %}<s>{% endif %} {# conditional statement in Jinja, if the "note.done" attribute is "true" it will add the <s> 
-        tag which represents "strikethrough text" - visual indication, that item is completed or done#}
-            {{ note.data }} {#acessing the data in the note model when the template is rendered, this represents the data or content of the note#}
+    {% for note in user.notes %}            {#loop iterating over each "note" object in the "user.notes" list - the loop will execute the following lines of code for each note#}
+    <li class ="list-group-item">           {#HTML <li> element with class "list-group-item" representing a single item in the list#}
+        {% if note.done %}<s>{% endif %}    {# conditional statement in Jinja, if the "note.done" attribute is "true" it will add the <s> 
+                                            tag which represents "strikethrough text" - visual indication, that item is completed or done#}
+            {{ note.data }}                 {#acessing the data in the note model when the template is rendered, this represents the data or content of the note#}
         {% if note.done %}</s>{% endif %}   {#closing part of the conditional statement. if "note.done" is "true" it will add the closing </s> 
-        tag to end the strikethrough effect#}
+                                            tag to end the strikethrough effect#}
         <button type ="button" class ="close" onClick="deleteNote({{ note.id }})"> 
-        {#HTML button element with class "close" representing a button for deleting the note. "onClick" attribute specifies the JScript function
-        "deleteNote()" {{note.id}} - placeholder and will be replaced with the actual ID of the note#}
-            <span aria-hidden="true">Löschen &times;</span> {# HTML span element that contains "löschen" and &times symbol which is multipl. sign (x) 
-            to represent the delete action.#}
+                                            {#HTML button element with class "close" representing a button for deleting the note. "onClick" attribute specifies the JScript function
+                                            "deleteNote()" {{note.id}} - placeholder and will be replaced with the actual ID of the note#}
+            <span aria-hidden="true">Löschen &times;</span>     {# HTML span element that contains "löschen" and &times symbol which is multipl. sign (x) 
+                                                                to represent the delete action.#}
         </button>
 
         <button type="button" class="close" onClick="checkNote({{ note.id }})"> {#another HTML button element wit hclass "close" it represents a button

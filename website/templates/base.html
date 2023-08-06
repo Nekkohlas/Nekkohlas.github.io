@@ -16,15 +16,15 @@
 </head> {#head closing Tag#}
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">{#creates nav bar at top of webpage with dark background#}
-        <div class="d-flex justify-content-between">{#wrap <a> elem and button inside, flex container aligns elements on left side#}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">{#erstellt navbar oben auf Webpage mit dunklem Hintergrund#}
+        <div class="d-flex justify-content-between">{#umschließt <a> elem und Button, flex container ordnet Elemente auf der linken Seite an#}
             <a class="navbar-brand" href="/">NiceNotes</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">{#creates a button that collapses or expands navbar when clicked#}
-                <span class="navbar-toggler-icon"></span>{#using an icon to indicate buttons porpuse#}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">{#erstellt Button der Navbar zusammenklappt oder erweitert wenn angeklickt#}
+                <span class="navbar-toggler-icon"></span>   {#icon um Nutzen des Knopfes anzudeuten#}
             </button>
         </div>
-        <div class="collapse navbar-collapse" id="navbar">{#div element contains navigation links and collapses or expands based on the state of the button above#}
-            <div class="navbar-nav">{#div element representing a list of navigation links#}
+        <div class="collapse navbar-collapse" id="navbar"> {#div element das Navigationslinks enthält und zusammenklappt oder erweitert basierend auf Zustand des Knopfes oben#}
+            <div class="navbar-nav">                       {#div element repräsentiert eine Liste von Navigationslinks#}
                 {% if user.is_authenticated %}
                 <a class="nav-item nav-link" id="home" style="color: #fafdfb" href="/">Home</a>
                 <a class="nav-item nav-link" id="logout" style="color: #fafdfb" href="/logout">Logout</a>
@@ -41,31 +41,29 @@
         </div>
     </nav>
 
-    {% with messages = get_flashed_messages(with_categories=true) %} {# messages gets assigned any flashed messages, which are used to display temporary notifications
-    or alterts to the user 
-    messages ist variable die Liste hält mit flashmessages werten #}
-    {#getflashedmessages ist methode die vorher geflashte messages zurückgibt 
-    withmessages speichert die messages #}
-    {% if messages %} {# checks if there are any messages available so if messages available == true execute foll code#}
-    {%for category, message in messages %} {# loop iterates over each message in messages variable, for each iteration
-    the category and message values are assigned to respective variables  #}
-    {%if category =='error' %} {# if category error is true following code is ran #}
-    <div class="alert alert-danger alter-dismissable fade show" role="alert">{# div element representing alert (alter-danger) , class attribute adds style (red 
-    and as a danger message, role attribute describes the purpose of the element, i.e. alert) in a nutshell: creates a box that will show warning message in red #}
-        {{message}} {# message is placeholder for value that will be filled dynamically #}
-        <button type="button" class="close" data-dismiss="alert">{# button (no default behaviour), class="close" adds styling, data-dismiss="alert"
-        attribute tells it to dismiss or close the alert when clicked #}
-            <span aria-hidden="true">&times;</span> {# &times is the "multiplication" x so that makes the button look like a lil x  #}
+    {#quelle für below https://flask.palletsprojects.com/en/2.3.x/patterns/flashing/ #}
+    {% with messages = get_flashed_messages(with_categories=true) %}{#messages kriegt jegliche flashed messages welche zum Anzeigen von temporären Benachrichtigungen oder alerts für den User genutzt werden
+                                                                    messages ist variable die Liste hält mit flashmessages werten#}
+                                                                    {#getflashedmessages ist methode die vorher geflashte messages zurückgibt 
+                                                                     withmessages speichert die messages #}
+    {% if messages %} {#überprüft, ob messages vorhanden, wenn true, führt folgenden code aus#}
+    {%for category, message in messages %} {# loop iteriert über jede message in message Variable - für jede Iterarion werden die Katergorie und message Werte in die entsprechende Variable geschrieben
+     #}
+    {%if category =='error' %} {# wenn category error == true führt folgenden code aus #}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">{#div element repräsentiert alert (altert-danger), class attr fügt style (rot und danger message), role attr = Zweck, i.e. Alarm - erstellt eine Box die eine rote Warn-Nachricht ausgibt #}
+        {{message}} {# message ist Platzhalter für Wert der dynamisch ausgefüllt wird #}
+        <button type="button" class="close" data-dismiss="alert">{# button hat kein default behaviour , class="close" fügt Stil hinzu, data-dismiss="alert" Attribut lässt alert schließen wenn angeklickt
+        #}
+            <span aria-hidden="true">&times;</span> {# &times ist Multiplikation x => button sieht aus wie ein kleines x, aria hidden="true" entfernt das element und alle children vom acessibility tree, da es nur ein dekoratives Ikon ist. #}
         </button>
     </div>
     {% else %}
     <div class="alert alert-success alter-dismissable fade show" role="alert">{# altert altert-success https://getbootstrap.com/docs/4.0/components/alerts/ 
-    this line basically opens a div element w specif CSS classes, creating a styled alert box that indicates a successful message (success is green)#}
-        {{message}} {#placeholder for dynamic content #}
-        <button type="button" class="close" data-dismiss="alert">{# button (no default behaviour), class="close" adds styling, data-dismiss="alert"
-        attribute tells it to dismiss or close the alert when clicked #}
-            <span aria-hidden="true">&times;</span> {#span element that contains the "x" times multiplication symbol to represent button visually,
-            aria-hidden="true" removes the element and all its children from the acessibility tree, since its an purely decorative icon#}
+    öffnet ein div element mit spezifischen CSS Klassen, erstellt eine stylisierte Alarmbox die auf eine erfolgreiche Nachricht (grün) deutet (alert-sucess)
+    #}
+        {{message}} {#Platzhalter für dynamischen Inhalt#}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span> 
         </button>
     </div>
     {% endif %}
@@ -85,40 +83,48 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>{#adds JavaScript library - Jquery from foreign source in order to interact w HTML elements and simplify javascriptcode #}
+        crossorigin="anonymous"></script>{#fügt JavaSCript Bibliothek Jquery aus foreign source hinzu, um mit HTML-Elementen zu interagieren und JS-Code zu vereinfachen#}
         {#Jquery#}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>  {#loads poppers.js to add to bootstrap in order to position html elements properly, popper.min.js, src is path, 
-        SHA-384-Hash to ensure the file has not been altered during downloading, crossorigin="anonymous" says the script is ran in an anonymous context, which in turn 
-        provides another layer of safety für the website and the user. Anonymous context is normally used if a script does not need specific authorization and
-        only needs t oaccess certain functions or libraries. the crossorigin anonymous says that the script has no cross origin limitations and can be
-        ran from any source (Domain protocol or port) without needing specific authorization #}
+        crossorigin="anonymous"></script>  {#        
+        lädt poppers.js um BootStrap hinzuzufügen, damit html elemente ordentlich positioniert werden. popper.min.js, src ist der Pfad, SHA-384-Hash, um sicherzustellen, 
+        dass die Datei während des Herunterladens nicht verändert wurde, crossorigin="anonymous" bedeutet, dass das Skript in einem anonymen Kontext ausgeführt wird, was wiederum 
+        eine weitere Sicherheitsebene für die website und den B enutzer bietet. Der anonyme Kontext wird normalerweise verwendet, wenn ein Skript keine spezielle Autorisierung benötigt und
+        nur auf bestimmte Funkt ionen oder Bibliotheken zugreifen muss. crossorigin anonymous besagt, dass das Skript keine herkunftsübergreifenden Beschränkungen hat und
+        von einer beliebigen Quelle (Domain-Protokoll oder Port) ausgeführt werden kann, ohne dass eine spezielle Autorisierung erforderlich ist.
+        #}
+
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script> {# source url of the javascript file , it points to the version of the bootstrap library hosted on the maxcdn delivery network
-        integrity sha ... is the integrity attribute containing the hash value that ensures teh file hat not been tempered with during transmossion and provides
-        a security measure to verify the integrity and authenticity of the file
-        corrorigin - again makes it so that the script does not require any specific credentials or sensitive data from the server. overall
-        this bootstrap javascript file allows us to utilize the interactive components and functionality provided by bootstrap dropdown menus, models and more ..#}
+        crossorigin="anonymous"></script> {# Quell-URL der Javascript-Datei, sie verweist auf die Version der Bootstrap-Bibliothek, die im maxcdn Delivery Network gehostet wird
+        integrity sha ... ist das Integritätsattribut, das den Hashwert enthält, der sicherstellt, dass die Datei während der Übertragung nicht verfälscht wurde und eine
+        eine Sicherheitsmaßnahme, um die Integrität und Authentizität der Datei zu überprüfen
+        corrorigin - wiederum sorgt dafür, dass das Skript keine spezifischen Anmeldeinformationen oder sensiblen Daten vom Server benötigt. insgesamt
+        Diese Bootstrap-Javascript-Datei ermöglicht es uns, die interaktiven Komponenten und Funktionen von Bootstrap-Dropdown-Menüs, Modellen und mehr zu nutzen ..#}
 
 
-    {# code block is written in jinja templating language and is used to define Javascript functions within an html template#}
+    {# code block ist in jinja templating Sprache geschrieben und wird verwendet um javascript Funktionen innerhalb einer html template zu definieren#}
+
     {% block javascript %}                              {#block of code specifically for JavaScript as a placeholder, which can be overridden in child templates#}
-    <script type="text/javascript">                     //specifies javascript block within the html file 
-        function deleteNote(noteId) {                   //defining JScript function named "deleteNote" with paramater "noteID" (to delete notes...)
-            if (!confirm("Sicher löschen?")) return;    //Fast return - in JScript is a technique used to exit a function early and prevent the xecution
-                                                        //early within that function when condition is met. if sicher löschen is not confirmed, further code wont be executed!
+    <script type="text/javascript">                     //spezifiziert javascript block innerhalb der html datei 
+        function deleteNote(noteId) {                   // definiert JScript Funktion "deleteNote" mit param "noteID" (um Notizen zu löschen)
+            if (!confirm("Sicher löschen?")) return;    //Fast return - in JScript ist eine Technik, die verwendet wird, um eine Funktion frühzeitig zu verlassen und die Ausführung innerhalb
+                                                        //dieser Funktion zu verhindern, wenn die Bedingung erfüllt ist. Wenn sicher löschen nicht bestätigt wird, wird weiterer Code nicht ausgeführt!
             
-            
-            /*code below initiates a network reques t to the server at the "/delete-note" endpoint using the fetch API (is more efficient and convenient 
-            Fetch API allows HTTP reques ts to servers and retrieve data in form of responses, it provides built in methods and options for handling diff types
-            of reques ts such as GET POST PUT DELETE, you can use it to fetch data from APIs send data to a server or perform other actions that involve comm
-            with a web server. FETCH API returns a Promise, which is a special JScript object that represents the eventual completion or failure of an 
-            asyncrhonous operation. You can use methods like .then() and .catch() to handle the response and then process the data returned by the server!
-            the fetch API is a powerful tool for working with server-side resources and exchanging data between the client and server in web applications
-            it simplifies the process of making http requests and provides a more modern nad intuitive way of working with network and requests in Javascript
-            source: chatbot wikipedia and others...
+            /*
+             
+            untenstehender code initiiert eine NEtzwerkanfrage zum SErver beim dem "/delete-Note" endpoint mit der fetch API (ist effizienter und praktisscher) 
+            Fetch API erlaubt HTTP Anfragen an Server und das Abrufen von Daten in Form von responses, sie bietet eingebaute Methoden und Optionen für die Handhabung
+            verschiedenen Anfragetypen wie GET POST PUT und Delete, man kann sie verwenden um Daten von APIs abzurufen Daten an einen Server zu senden oder andere Aktionen
+            durchzuführen, die eine Kommunikation mit einem Webserver beinhalten. 
+            Fetch API gibt ein Promise zurück, ein spezielles JScript-Objekt, das den eventuellen Abschluss oder
+            das Scheitern einer asynchronen Operation darstellt. So können methoden benutzt werden wie .then() und .catch() um die Antwort zu verarbeiten und dann die vom Server
+            zurückgegebenen Daten zu verarbeiten.
+            Fetch-API ist ein Werkzeug für die Arbeit mit serverseitigen Ressourcen und den Austausch von Daten zwischen CLient und SErver in Webanwendungen. Es 
+            vereinfacht den Prozess der http-Anfragen und bietet eine modernere und intuitivere Möglichkeit mit Netzwerken und ANfragen in Javascript zu arbeiten.
+            Quelle: chatbot, wikipedia und andere
             */
             fetch("/delete-note", {
                 method: "POST",
@@ -126,39 +132,41 @@
             }).then((_res) => {
                 window.location.href = "/";
             });
-            /*fetch delete note initiates a network request to the server at "/delete-note" endpoint using fetch api, HTTP POST reques t t odelete a certain note 
-            body JSON.stringify({noteID:noteID}) sets the request body by converting a Jscript object containing the noteID parameter into a JSON String
-            (In the code you provided, JSON.stringify({ noteId: noteId }) is used to convert a JavaScript object into a JSON string representation. 
-                The JSON.stringify() method takes an object as input and returns a string containing the JSON representation of that object. 
-                JSON string can then be sent to the server as part of the HTTP request payload.)
-             }).then((_res) => {    starts a promise chain, once the server responds to the requests, the following code shall be executed
-             window.location.href = "/";    this redirects the user to the root URL ("/") after the note deleteion was successful
+            /* 
+             fetch delete note initiiert eine Netzwerkanfrage an den Server bei der "/delete-Note" endpoint mit der Fetch API. 
+             HTTP POST Anfrage um eine spezifische Notiz zu löschen
+             body JSON.stringify({noteID:noteID}) setzt den Request-Körper indem ein JScript Objekt, das die noteID parameter hält, in ein JSON String konvertiert wird.
+             In dem code wird mit Methode JSON.stringify ({ noteId: noteId }) ein JScript Objekt in ein JSON String konvertiert.
+             JSON string kann dann an den Server geschickt werden, als Teil einer HTTP request payload .
+             }).then((_res) => { startet eine promise chain, sobald der Server auf die Anfrage anwortet, wird der folgende code ausgeführt;
+             window.location.href = "/"; leitet den User dann zu der root URL "/" nachdem die Notiz-Löschung erfolgreich war 
+             Quelle: ChatGPT, wikipedia und andere
+             */
 
-            
-            
-            */
         }        
         function checkNote(noteId){
             fetch('/check-note', {
                 method: "POST",
                 body: JSON.stringify({noteId: noteId}),
-            /*function checkNote(noteId){   defines another Jscript function named "checkNote" with a parameter "noteID" which is used to check a note
-            fetch('/check-note', {  initiates a network request to the server at the "/check-note" endpoint using the fetch API, it performs an http POST request
-            to check the status of a specific note
-            method: "POST", specifies that the request method is POST indicates that the server should perform a checking operation
-            body: JSON.stringify({noteId: noteId}),     setting request body by converting a Jscript object containing the "noteID" parameter
-            into a JSON string
-             */
+            /*             
+             checkNote definiert JScript Funktionen namens "checkNote" mit param "noteID" - wird genuitzt um notiz zu überprüfen
+             fetch('/check-note', { initiiert eine Netzwerkanfrage an den Server an "/check-note" endpoint mit fetch API, es wird eine http POST Anfrage ausgeführt
+             um den status von einer spezifischen Notiz zu überprüfen.
+             method:"Post", spezifiziert, dass die Afragemethode POST ist, und sagt, dass der SErver eine Prüfoperation durchführen soll,
+             body: JSON.stringify({noteId: noteId}), setzt den request body indem das JScript object mit der noteID in ein JSON string konvertiert wird.
+            */
             
             }).then((_res) => {
                 window.location.href ="/";
             });
         }
-            /*  }).then((_res) => {     start promise chain, once server responds to request, following code shall be executed
-             window.location.href ="/";     redirects user to "/" root url after the note check is completed
-                     
+            /*                      
+            }).then((_res) => {     startet promise chain, sobald der server auf die ANfrage antwortet, wird folgender code ausgeführt
+            window.location.href ="/"; leitet den user zu "/" root url weiter, nachdem die Notizprüfung durchgeführt wurde
+
             */
     </script>  {#ends the javascript code block#}
+
     {% endblock %}  {#ends the block defined as JavaScript block in the template#}
 
     {# script below is used to include JavaScript code into an HTML documnet
@@ -175,4 +183,4 @@
 
 </body> // closing tag of body element, marks end of visible content on the html documnet
 
-</html> // ends the end of the html element obv
+</html> // ends the end of the html element 

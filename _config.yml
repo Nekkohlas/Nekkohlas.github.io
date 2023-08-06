@@ -1,0 +1,49 @@
+title: [NiceNotes]
+remote_theme: just-the-docs/just-the-docs
+description: Projekt von Nikolas Teuber für die Veranstaltung Wi-Inf-M09 
+mermaid:
+  version: "9.4.3" # Pick version from https://cdn.jsdelivr.net/npm/mermaid/
+callouts:
+  tip:
+    title: 🤍 Tip
+    color: purple
+  info:
+    title: ℹ️ Info
+    color: blue
+  attention:
+    title: ❕ Attention
+    color: yellow
+
+    sidebar:
+  - title: Value Proposition
+    url: /docs/value-proposition/
+
+  - title: App structure
+    url: /docs/app-structure/
+
+  - title: App behaviour
+    url: /docs/app-behaviour/
+
+  - title: Data model
+    url: /docs/data-model/
+
+  - title: API reference
+    url: /docs/api-reference/
+
+  - title: Design decisions
+    url: /docs/design-decisions/
+
+  - title: User evaluation
+    url: /docs/user-evaluation/
+
+  - title: Goals achieved and missed
+    url: /docs/goals-achieved-and-missed/
+  
+  - title: What I would improve in the future
+    url: /docs/what-I-would-improve-in-the-future/
+
+  - title: Peer review
+    url: /docs/peer-review/
+
+  
+ 
