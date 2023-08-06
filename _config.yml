@@ -1,5 +1,6 @@
-title: [NiceNotes]
+
 remote_theme: just-the-docs/just-the-docs
+title: [NiceNotes]
 description: Projekt von Nikolas Teuber für die Veranstaltung Wi-Inf-M09 
 mermaid:
   version: "9.4.3" # Pick version from https://cdn.jsdelivr.net/npm/mermaid/
@@ -14,7 +15,7 @@ callouts:
     title: ❕ Attention
     color: yellow
 
-    sidebar:
+sidebar:
   - title: Value Proposition
     url: /docs/value-proposition/
   - title: App structure
