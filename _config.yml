@@ -16,19 +16,16 @@ callouts:
 sidebar:
   - title: Value Proposition
     url: /docs/value-proposition/
-  - title: Technical Docs
-    output: web
-    folderitems:
-      - title: App structure
-        url: /docs/app-structure/
-      - title: App behaviour
-        url: /docs/app-behaviour/
-      - title: Data model
-        url: /docs/data-model/
-      - title: API reference
-        url: /docs/api-reference/
-      - title: Design decisions
-        url: /docs/design-decisions/
+  - title: App structure
+    url: /docs/app-structure/
+  - title: App behaviour
+    url: /docs/app-behaviour/
+  - title: Data model
+    url: /docs/data-model/
+  - title: API reference
+    url: /docs/api-reference/
+  - title: Design decisions
+    url: /docs/design-decisions/
   - title: User evaluation
     url: /docs/user-evaluation/
   - title: Goals achieved and missed
