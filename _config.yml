@@ -13,24 +13,4 @@ callouts:
   attention:
     title: ❕ Attention
     color: yellow
-sidebar:
-  - title: Value Proposition
-    url: /docs/value-proposition/
-  - title: App structure
-    url: /docs/app-structure/
-  - title: App behaviour
-    url: /docs/app-behaviour/
-  - title: Data model
-    url: /docs/data-model/
-  - title: API reference
-    url: /docs/api-reference/
-  - title: Design decisions
-    url: /docs/design-decisions/
-  - title: User evaluation
-    url: /docs/user-evaluation/
-  - title: Goals achieved and missed
-    url: /docs/goals-achieved-and-missed/
-  - title: What I would improve in the future
-    url: /docs/what-I-would-improve-in-the-future/
-  - title: Peer review
-    url: /docs/peer-review/
+
