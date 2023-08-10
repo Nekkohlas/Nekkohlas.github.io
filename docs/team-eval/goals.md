@@ -1,12 +1,13 @@
 ---
-title: Value Proposition
+title: Goals
+parent: Team Evaluation
 nav_order: 1
 ---
 
 [Jane Dane]
 {: .label }
 
-# [Value proposition]
+# [Goals achieved and missed]
 {: .no_toc }
 
 <details open markdown="block">

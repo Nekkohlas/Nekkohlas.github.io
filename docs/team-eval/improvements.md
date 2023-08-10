@@ -1,12 +1,13 @@
 ---
-title: Value Proposition
-nav_order: 1
+title: Improvements
+parent: Team Evaluation
+nav_order: 2
 ---
 
 [Jane Dane]
 {: .label }
 
-# [Value proposition]
+# [How we would improve next time]
 {: .no_toc }
 
 <details open markdown="block">

@@ -1,12 +1,13 @@
 ---
-title: Value Proposition
-nav_order: 1
+title: App Behavior
+parent: Technical Docs
+nav_order: 2
 ---
 
 [Jane Dane]
 {: .label }
 
-# [Value proposition]
+# [App behavior]
 {: .no_toc }
 
 <details open markdown="block">
