@@ -14,6 +14,12 @@ nav_order: 1
     Table of contents
   </summary>
   {: .text-delta }
-- TOC
+  
+- [Value Proposition](#value-proposition)
+  
 {:toc}
+  
+## Value proposition
+
+NiceNotes richtet sich an Schüler innen und Studierende und bietet eine Alternative zu physischen Notizen. Insbesondere vergessliche Nutzer innen können durch die digitale Speicherung maximal profitieren, da sie somit die Notizzettel nicht mehr verlieren können. Inspiriert durch Videospiele, in denen man Erfahrungspunkte sammelt und eine Fortschrittsanzeige hat, soll NiceNotes auf diese Weise auch bei der Motivation helfen, indem der Fortschritt der Nutzer ersichtlich ist. Durch das Füllen der Anzeige soll das Belohnungssystem aktiviert und somit der Nutzer angespornt werden, seine Aufgaben zu erledigen.
 </details>
