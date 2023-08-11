@@ -45,7 +45,7 @@ class login_form(FlaskForm):    #class for login_form inherits from Flask Form c
     email = StringField(        #field email is a Stringfield (i.e. text input)
         validators=[            #validators used follow
             InputRequired(),    #validates if input was put 
-            Length(10, 32),      #validates min max length within paranthesis
+            Length(10, 32),     #validates min max length within paranthesis
             Email(),            #validates whether a valid email was used 
         ]
     )
