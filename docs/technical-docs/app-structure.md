@@ -53,7 +53,7 @@ Der Benutzer navigiert zwischen den verschiedenen Ansichten, indem er Schaltflä
 
 ## Sequenceflow Diagramm Initialnutzung
 
-![Sequenzflussdiagramm überarbeitet](..assets/images/Sequenzflussdiagramm.png)
+![Sequenzflussdiagramm überarbeitet](../assets/images/Sequenzflussdiagramm.png)
 
 
 </details>
