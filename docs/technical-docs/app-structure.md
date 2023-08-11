@@ -22,6 +22,7 @@ nav_order: 1
 - [Datenbankinteraktion](#datenbankinteraktion)
 - [Benachrichtigungen und Interaktion mit Benutzern](#benachrichtigungen-und-interaktion-mit-benutzern)
 - [Navigation und Interaktion](#navigation-und-interaktion)
+- [Sequenceflow Diagramm Initialnutzung](#sequenceflow-diagramm-initialnutzung)
 
 {:toc}
 
@@ -49,5 +50,10 @@ Benutzer erhalten Rückmeldungen über abgeschlossene Aktionen oder etwaige Fehl
 
 ## Navigation und Interaktion
 Der Benutzer navigiert zwischen den verschiedenen Ansichten, indem er Schaltflächen betätigt, die POST-Anfragen senden oder als Navigationslinks dienen.
+
+## Sequenceflow Diagramm Initialnutzung
+
+![Sequenzflussdiagramm überarbeitet](..assets/images/Sequenzflussdiagramm%20überarbeitet.png)
+
 
 </details>
