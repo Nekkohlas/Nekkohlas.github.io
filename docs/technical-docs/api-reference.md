@@ -64,15 +64,15 @@ nav_order: 4
 
 **Methods:** `GET` `POST` 
 
-**Purpose:** Wenn ein nicht authentifizierter Benutzer auf die /login-Route gelangt, wird das Login-Formular angezeigt, damit UserInnen sich anmelden können.
+**Purpose:** Wenn eine nicht authentifizierte Benutzerin auf die /login-Route gelangt, wird das Login-Formular angezeigt, damit die Userin sich anmelden kann.
 
-**Funktionsweise:** 1.	Zu Beginn wird der Benutzer als current_user auf "anonym" gesetzt, da er nicht eingeloggt ist.  
+**Funktionsweise:** 1.	Zu Beginn wird die Userin als current_user auf "anonym" gesetzt, da sie nicht eingeloggt ist.  
 2.	Sobald das benutzerdefinierte Loginformular abgesendet wird, validiert die Funktion die eingegebenen Daten, insbesondere die Email-Adresse.  
-3.	Die eingegebene Email-Adresse wird in der Datenbank gesucht. Falls die Email nicht gefun-den wird, wird dem Benutzer mitgeteilt, dass die Eingaben ungültig sind.  
-4.	Wenn die Email gefunden wird, wird das eingegebene Passwort mit dem gehashten Pass-wort in der Datenbank mittels check_password_hash verglichen.   Bei erfolgreicher Über-einstimmung wird der Benutzer mithilfe von login_user eingeloggt und auf die Homepage weitergeleitet.  
-5.	Falls das eingegebene Passwort nicht mit dem gespeicherten Passwort übereinstimmt, wird der Benutzer aufgefordert, die Eingabe zu korrigieren.
+3.	Die eingegebene Email-Adresse wird in der Datenbank gesucht. Falls die Email nicht gefunden wird, wird der Userin mitgeteilt, dass die Eingaben ungültig sind.  
+4.	Wenn die Email gefunden wird, wird das eingegebene Passwort mit dem gehashten Passwort in der Datenbank mittels check_password_hash verglichen.   Bei erfolgreicher Übereinstimmung wird der Benutzer mithilfe von login_user eingeloggt und auf die Homepage weitergeleitet.  
+5.	Falls das eingegebene Passwort nicht mit dem gespeicherten Passwort übereinstimmt, wird die Userin aufgefordert, die Eingabe zu korrigieren.
 
->> Die Funktion nutzt Flask-Login und den Loginmanager, um den gesamten Authentifizierungsprozess zu verwalten und den eingeloggten Nutzer zu setzen.
+>> Die Funktion nutzt Flask-Login und den Loginmanager, um den gesamten Authentifizierungsprozess zu verwalten und die eingeloggte Userin zu setzen.
 
 **Sample output:**
 
@@ -87,16 +87,16 @@ nav_order: 4
 
 **Methods:** `GET` `POST` 
 
-**Purpose:** Die Funktion sign_up() ermöglicht Benutzern die Registrierung für die Anwendung über die Sign-up Route
+**Purpose:** Die Funktion sign_up() ermöglicht UserInnen die Registrierung für die Anwendung über die Sign-up Route
 
 **Funktionsweise:**
-1.	Wenn ein Benutzer die /sign-up-Route aufruft, wird zuerst die zugehörige Template ger-endert, die den gegenwärtigen (anonymen) Benutzer anzeigt.  
-2.	Ein individuelles Formular für die Registrierung wird präsentiert, um die notwendigen Re-gistrierungsinformationen zu sammeln.  
-3.	Wenn der Benutzer Eingaben tätigt und das Formular absendet, werden die eingegebenen Daten mithilfe der .validate_on_submit() Methode validiert.  
+1.	Wenn eine Userin die /sign-up-Route aufruft, wird zuerst die zugehörige Template gerendert, die die gegenwärtigee (anonymen) Userin anzeigt.  
+2.	Ein individuelles Formular für die Registrierung wird dargestellt, um die notwendigen Registrierungsinformationen einzuholen.  
+3.	Wenn die Userin Eingaben tätigt und das Formular absendet, werden die eingegebenen Daten mithilfe der .validate_on_submit() Methode validiert.  
 4.	Anschließend wird eine neue Instanz der User-Klasse erstellt, wobei das Passwort vor der Speicherung gehasht wird.  
 5.	Das Datenbankobjekt (db) fügt die erstellte Instanz der User-Klasse mithilfe von .add(new_user) zur Datenbank hinzu und speichert die Änderungen mit .commit().  
-6.	Die Methode login_user() wird ausgeführt, um den Benutzer einzuloggen und ihn in der aktuellen Sitzung zu registrieren.  
-7.	Eine Benachrichtigungsnachricht (Flash-Nachricht) wird ausgegeben, um den Benutzer darüber zu informieren, dass der Anmeldeprozess erfolgreich abgeschlossen wurde.  
+6.	Die Methode login_user() wird ausgeführt, um die Userin einzuloggen und ihn in der aktuellen Sitzung zu registrieren.  
+7.	Eine Benachrichtigung (Flash-Nachricht) wird ausgegeben, um den Benutzer darüber zu informieren, dass der Anmeldeprozess erfolgreich abgeschlossen wurde.  
 8.	Der Benutzer wird anschließend auf die Home-Ansicht weitergeleitet.  
 
 
@@ -113,9 +113,9 @@ nav_order: 4
 
 **Methods:** keine
 
-**Purpose:** Mit der Logoutfunktion kann sich ein angemeldeter Benutzer abmelden.
+**Purpose:** Mit der Logoutfunktion kann sich eine angemeldete Userin abmelden.
 
-**Funktionsweise:** Die Logoutroute hat durch den decorator @login_required die Zugriffsvoraussetzung, dass ein User eingeloggt ist.   Die logout Funktion loggt den gegenwärtig eingeloggten User mit der logout_user() Methode aus, ohne das ein User übergeben werden muss und säubert,   falls vorhanden, den remember me cookie. Wenn der logout Vorgang abgeschlossen ist, wird der User auf die login-URL weiterverwiesen.
+**Funktionsweise:** Die Logoutroute hat durch den decorator @login_required die Zugriffsvoraussetzung, dass eine Userin eingeloggt ist.   Die logout Funktion loggt die gegenwärtig eingeloggte Userin mit der logout_user() Methode aus, ohne das ein User übergeben werden muss und säubert,   falls vorhanden, den remember me cookie. Wenn der logout Vorgang abgeschlossen ist, wird die Userin auf die login-URL weiterverwiesen.
 
 **Sample output:**
 
@@ -209,7 +209,7 @@ Im Anschluss wird eine Promise-kette mit „then“ gestartet. Der parameter „
 1.	In der Variable note werden die Daten aus der POST-Anfrage im JSON-Datenformat gespeichert.  
 2.	Der Wert des Schlüssels "noteID" aus dem JSON-Objekt "note" wird extrahiert und in der Variable noteId abgespeichert.  
 3.	Die Notiz mit der entsprechenden "noteId" wird in der Datenbank gesucht und in der Variable note gespeichert.  
-4.	Es wird überprüft, ob der aktuelle Benutzer (User) der Besitzer der Notiz ist, bei der der Status geändert werden soll. Wenn dies der Fall ist, wird der Status der Notiz auf den gegenteiligen Wert gesetzt (umgekehrt).  
+4.	Es wird überprüft, ob die aktuelle Userin die Besitzerin der Notiz ist, bei der der Status geändert werden soll. Wenn dies der Fall ist, wird der Status der Notiz auf den gegenteiligen Wert gesetzt (umgekehrt).  
 5.	Der Benutzer wird über die durchgeführte Statusänderung der Notiz benach-richtigt. Eine Benachrichtigung wird mit flash() ausgegeben, um den Benutzer über die Statusänderung zu informieren.
 6.	Die Funktion gibt eine leere JSON-Antwort zurück, da nach der Änderung des Notizstatus keine spezifischen Daten zurückgegeben werden müssen.  
 
@@ -229,12 +229,12 @@ Im Anschluss wird eine Promise-kette mit „then“ gestartet. Der parameter „
 
 **Purpose:** Ermöglicht es dem Nutzer Notizen zu erstellen und den Fortschritt zu berechnen
 
-**Funktionsweise:**
-Wenn die home() Funktion aufgerufen wird, überprüft sie den Anfragetyp. Wenn die Anfrage vom Typ POST ist, wird der Wert, der im Feld 'note' übermittelt wurde,   mithilfe von request.form.get abgerufen. Falls die Länge der Notiz kleiner als 1 ist, wird dem Nutzer eine Fehlermeldung angezeigt, die besagt, dass die Notiz zu kurz ist.   Wenn die Länge ausreichend ist, wird eine neue Instanz der Note Klasse erstellt. Diese Instanz enthält die Eingabedaten ('data') sowie die ID des aktuellen Nutzers ('user_id'). Anschließend wird die neue Notiz in die Datenbank eingefügt und die Änderungen mit db.session.commit() gespeichert.  Der Nutzer erhält eine Erfolgsmeldung, die besagt, dass die Notiz erfolgreich hinzugefügt wurde.
+**Funktionsweise Notiz erstellen:**
+Wenn die home() Funktion aufgerufen wird, überprüft sie den Anfragetyp. Wenn die Anfrage vom Typ POST ist, wird der Wert, der im Feld 'note' übermittelt wurde,   mithilfe von request.form.get abgerufen. Falls die Länge der Notiz kleiner als 1 ist, wird der Userin eine Fehlermeldung angezeigt, die besagt, dass die Notiz zu kurz ist.   Wenn die Länge ausreichend ist, wird eine neue Instanz der Note Klasse erstellt. Diese Instanz enthält die Eingabedaten ('data') sowie die ID der aktuellen Userin ('user_id'). Anschließend wird die neue Notiz in die Datenbank eingefügt und die Änderungen mit db.session.commit() gespeichert.  Die Userin erhält eine Erfolgsmeldung, die besagt, dass die Notiz erfolgreich hinzugefügt wurde.
 
-**Berechnen des Fortschritts:**
-Mittels einer Schleife (for loop) wird für jede Notiz des aktuellen Nutzers überprüft, ob sie als erledigt ('done') markiert ist.   Falls dies der Fall ist, wird der Fortschrittszähler ('progress') erhöht. Danach wird der Wert des Fortschrittszählers durch die Anzahl der Notizen des aktuellen Nutzers geteilt und mit 100 multipliziert,   um den Fortschritt in Prozent zu berechnen.
-Die home() Funktion gibt ein HTML-Template ('home.html') zurück, in dem die übergebenen Parameter current_user (aktueller Nutzer) und progress (berechneter Fortschritt in Prozent) verwendet werden, um die Benutzeroberfläche darzustellen.
+**Funktionsweise Berechnen des Fortschritts:**
+Mittels einer Schleife (for loop) wird für jede Notiz der aktuellen Userin überprüft, ob sie als erledigt ('done') markiert ist.   Falls dies der Fall ist, wird der Fortschrittcount er ('progress') erhöht. Danach wird der Wert des Fortschrittcounters durch die Anzahl der Notizen der aktuellen Userin geteilt und mit 100 multipliziert,   um den Fortschritt in Prozent zu berechnen.
+Die home() Funktion gibt ein HTML-Template ('home.html') zurück, in dem die übergebenen Parameter current_user (aktuelle Userin und progress (berechneter Fortschritt in Prozent) verwendet werden, um die Benutzeroberfläche darzustellen.
 
 
 **Sample output:**
