@@ -15,7 +15,20 @@ nav_order: 4
     Table of contents
   </summary>
   {: .text-delta }
-- TOC
+  
+- [Platzhalterfunktion](#platzhalterfunktion)
+- [Loginfunktion](#loginfunktion)
+- [Anmeldefunktion](#anmeldefunktion)
+- [Logoutfunktion](#logoutfunktion)
+- [deleteNote](#deletenote)
+- [delete_note](#delete_note)
+- [Notizprüfung](#notizprüfung)
+- [Notizstatusänderung](#notizstatusänderung)
+- [Homeansicht](#homeansicht)
+- [Section / module](#section--module)
+- [Example, delete this section - Show to-do lists](#example-delete-this-section---show-to-do-lists)
+- [Example, delete this section - Insert sample data](#example-delete-this-section---insert-sample-data)
+  
 {:toc}
 </details>
 
