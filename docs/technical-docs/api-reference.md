@@ -60,7 +60,7 @@ nav_order: 4
 
 ### `login()`
 
-**Route:** `/route/`
+**Route:** `/login`
 
 **Methods:** `GET` `POST` 
 
