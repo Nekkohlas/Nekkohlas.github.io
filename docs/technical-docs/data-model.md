@@ -26,6 +26,9 @@ nav_order: 3
 ## Beschreibung der Datenklassen:
 In NiceNotes gibt es die Klassen Note und User. Beide sind SQLAlchemy Datenbank-Modelklassen
 
+>> **Zwischen den Klassen besteht ein one-to-many relationship, da ein User viele Notizen haben kann,
+wobei jede Notiz einem User eindeutig zugeordnet wird.**
+
 ## Notiz-Klasse
 
 **Zweck:**
