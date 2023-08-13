@@ -40,7 +40,9 @@ Nach dem Anmelden erreichen Benutzer die Home-Ansicht.
 Hier können sie ihre gespeicherten Notizen anzeigen lassen.  
 Es besteht die Möglichkeit, neue Notizen in das dafür vorgesehene Eingabefeld einzugeben und in der Datenbank zu speichern.  
 Benutzer können außerdem ihre Notizen als "erledigt" markieren und den Status von Aufgaben ändern.   Dies erfolgt durch eine spezielle Schaltfläche.  
-Wenn Benutzer Notizen eingeben und diese als "erledigt" markieren, wird der Fortschritt mithilfe einer Fortschrittsanzeige visualisiert.   Diese Anzeige wird durch die Verwendung einer Bootstrap Progressbar implementiert.
+Wenn Benutzer Notizen eingeben und diese als "erledigt" markieren, wird der Fortschritt mithilfe einer Fortschrittsanzeige visualisiert.   Diese Anzeige wird durch die Verwendung einer Bootstrap Progressbar implementiert.  
+Der Nutzer kann zwischen einer hellen und dunklen Benutzeroberfläche entscheiden, indem er das entsprechende Bedienelement in der Navbar verwendet.  
+Die Notizen werden nach ihrem Status in seperaten Listen angezeigt, eine Liste hält die unerledigten, die andere die erledigten Notizen.
 
 ## User flow Diagramm 
 ![User-flow](../assets/images/User-Flow.png)
