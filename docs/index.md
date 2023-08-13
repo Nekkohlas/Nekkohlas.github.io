@@ -3,27 +3,20 @@ title: Home
 nav_order: 0
 ---
 
-# [Project Name]
+# [NiceNotes]
 
-[Project description]
+
+
+NiceNotes ist eine App bei der Nutzer*innen Notizen eintragen und nachverfolgen können. Mithilfe einer Anzeige können Nutzer*innen leicht nachvollziehen, wie viel Fortschritt schon gemacht wurde und was noch an Erledigungen zu tun ist. 
 
 ## Team members
 
-### [Jane Dane]
+### [Nikolas Teuber]
 
 About
-: Some info about Jane
+: Some info about Niko
 
-Matr.-Nr.
-: 1234567
-
-### [Joe Doe]
-
-About
-: Some info about Joe
-
-Matr.-Nr.
-: 1234567
+Matrikelnummer: 77211917927
 
 ## Eidesstattliche Erklärung
 
