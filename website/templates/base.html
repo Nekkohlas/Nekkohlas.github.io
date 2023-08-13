@@ -13,9 +13,28 @@
         crossorigin="anonymous" />{#link to external CSS file, includes add icons from the Font Awesome library#}
     <title>{% block title %}Home{% endblock %}</title> {#title bar of the browser, Home may be overridden in diff
     parts of the code due to jinja templ language #}
+    <style>
+        .darkmode {
+            background-color: #171717;
+        }
+        .darkmode :is(h1, p, li, span) {
+            background-color: #171717;
+            color: white;
+        }
+        .darkmode :is(textarea, textarea:focus) {
+            background-color: #2e2e2e;
+            color: white;
+        }
+        .darkmode .list-group-flush .list-group-item {
+            border: 1px solid rgba(255, 255, 255, 0.13); 
+            border-right-width: 0;
+            border-left-width: 0;
+            border-radius: 0;
+        }
+    </style>
 </head> {#head closing Tag#}
 
-<body>
+<body {% if user.darkmode %}class="darkmode"{% endif %}>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">{#erstellt navbar oben auf Webpage mit dunklem Hintergrund#}
         <div class="d-flex justify-content-between">{#umschließt <a> elem und Button, flex container ordnet Elemente auf der linken Seite an#}
             <a class="navbar-brand" href="/">NiceNotes</a>
@@ -34,6 +53,7 @@
                 {% endif %}
             </div>
             {% if user.is_authenticated %}
+            <div class="nav-item nav-text" style="color: #fafdfb" onclick="triggerDarkmode()">&#9728;</div>
             <div class="nav-item nav-text ml-auto" style="color: #fafdfb">Hallo {{user.first_name}}</div>
             {% else %}
             <div class="nav-item nav-text ml-auto" style="color: #fafdfb">Hallo Guest</div>
@@ -165,6 +185,13 @@
             window.location.href ="/"; leitet den user zu "/" root url weiter, nachdem die Notizprüfung durchgeführt wurde
 
             */
+        function triggerDarkmode() {
+            fetch('/trigger-darkmode', {
+                method: 'POST',
+            }).then((_res) => {
+                window.location.reload();
+            });
+        }
     </script>  {#ends the javascript code block#}
 
     {% endblock %}  {#ends the block defined as JavaScript block in the template#}

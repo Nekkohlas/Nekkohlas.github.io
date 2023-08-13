@@ -17,5 +17,6 @@ class User(db.Model, UserMixin):                    #inherit from db.Model(Klass
     id = db.Column(db.Integer, primary_key = True)  #jeder Benutzerdatensatz hat eine eindeutige ID vom Typ integer 
     email = db.Column(db.String(150), unique=True)  #email ist vom Typ String in der Datenbank, max. Länge von xxx Zeichen, unique=true bedeutet jede Email innerhalb Tabelle muss eindeutig sein
     password =db.Column(db.String(150))             #pw ist ebenfalls von Typ String in der Datenbank, max Länge xxx
-    first_name = db.Column(db.String(150))          #wie oben 
+    first_name = db.Column(db.String(150))          #wie oben
+    darkmode = db.Column(db.Boolean())
     notes = db.relationship('Note')                 #setzt die Datenbankbeziehung zwischen "Note" Klasse und User-Klasse 

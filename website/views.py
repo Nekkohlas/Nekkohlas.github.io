@@ -51,7 +51,7 @@ def delete_note():#Funktion "delete_note" die ausgeführt wird, wenn URL '/delet
     return jsonify({})#gibt eine leere JSON antwort zurück, das heißt, es wird nach dem Löschen der Notiz keine spezifische Daten zurückgegeben
 
 @views.route('/check-note', methods=['POST'])
-def check_note():#Funktion "check_note" die ausgeführt wird, wenn URL '/check-note" aufgerufen wird
+def check_note():#Funktion "check_note" die ausgeführt wird, wenn URL '/delete-Note" aufgerufen wird
     note = json.loads(request.data) #liest Daten aus POST Anfrage als JSON und speichert sie in der Variable "note" JSON ist Datenformat zum Speichern und Austauschen von Daten 
     noteId = note['noteId']#extrahiert den Wert des Schlüssels "noteID" aus dem JSON-Objekt "note" und speichert in in der variable noteid
     note = Note.query.get(noteId)#sucht in der Datenbank nach einer Notiz mit entsprechender "noteid" und speichert sie in der Var "note", hier wird angenommen, dass es Datenbanktabelle "Note" gibt, die die Notizen enthält
@@ -61,3 +61,10 @@ def check_note():#Funktion "check_note" die ausgeführt wird, wenn URL '/check-n
             db.session.commit()#speichert Änderung in der Datenbank
             flash(f"Notiz wurde als {'' if note.done else 'nicht '}erledigt makiert.")
     return jsonify({})#gibt eine leere JSON antwort zurück, das heißt, es wird nach dem Löschen der Notiz keine spezifische Daten zurückgegeben
+
+@views.route('/trigger-darkmode', methods=['POST'])
+def trigger_darkmode():
+    current_user.darkmode = not current_user.darkmode
+    db.session.commit()
+    flash(f"Darkmode wurde {'' if current_user.darkmode else 'de'}aktiviert.")
+    return '{}'
