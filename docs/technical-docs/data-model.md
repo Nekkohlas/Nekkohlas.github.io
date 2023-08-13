@@ -29,6 +29,7 @@ In NiceNotes gibt es die Klassen Note und User. Beide sind SQLAlchemy Datenbank-
 ## Notiz-Klasse
 
 **Zweck:**
+
 Die Klasse Note ist die Klasse für die Notizen und erbt von der db.Model-Klasse, welche wiederum eine SQLalchemy Modelklasse ist.
 
 Die Note Klasse hat folgende Spalten:
@@ -43,17 +44,18 @@ wird die Datum und aktuelle Uhrzeit in der Spalte gespeichert.
 ## User-Klasse
 
 **Zweck:**
+
 Die Klasse User ist die Klasse für die Userinnen Notizen und erbt von der db.Model-Klasse, welche wiederum eine SQLalchemy Modelklasse ist. 
 Außerdem erbt die Userklasse UserMixin, welche weitere Eigenschaften implementiert wie is_authenticated, is_anonymous und andere.
  
 
 Die User Klasse hat folgende Spalten:
 ---
-Id: ist eine Spalte vom Datentyp Integer und dient als PrimaryKey. Jede Notiz hat somit einen eindeutigen Identifikator.  
-Email: ist eine Spalte vom Typ String und hat eine Maximallänge von 150 Zeichen. Der Wert unique=true besagt, 
+**Id:** ist eine Spalte vom Datentyp Integer und dient als PrimaryKey. Jede Notiz hat somit einen eindeutigen Identifikator.  
+**Email:** ist eine Spalte vom Typ String und hat eine Maximallänge von 150 Zeichen. Der Wert unique=true besagt, 
 dass jede Email innerhalb der Tabelle eindeutig sein muss.  
-Password: ist eine Spalte vom Typ String mit einer Maximallänge von 150 Zeichen.  
-First_name: ist eine Spalte vom Typ String mit einer Maximallänge von 150 Zeichen  
+**Password:** ist eine Spalte vom Typ String mit einer Maximallänge von 150 Zeichen.  
+**First_name:** ist eine Spalte vom Typ String mit einer Maximallänge von 150 Zeichen  
 >> Notes: ist eine Spalte die die Datenbankbeziehung zwischen der Notiz- und UserKlasse setzt. 
 
 ## Datenbank Entity Relationship Diagramm
