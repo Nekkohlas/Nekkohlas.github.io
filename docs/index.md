@@ -5,20 +5,21 @@ nav_order: 0
 
 # [NiceNotes]
 
+NiceNotes ist eine App bei der UserInnen Notizen eintragen und nachverfolgen können. Mithilfe einer Fortschrittsanzeige können UserInnen leicht nachvollziehen, wie viel Fortschritt schon gemacht wurde und was noch an Erledigungen zu tun ist. 
 
+---
+## Allgemeines
 
-NiceNotes ist eine App bei der Nutzer*innen Notizen eintragen und nachverfolgen können. Mithilfe einer Anzeige können Nutzer*innen leicht nachvollziehen, wie viel Fortschritt schon gemacht wurde und was noch an Erledigungen zu tun ist. 
-
-## Team members
+### Team members
 
 ### [Nikolas Teuber]
 
 About
-: Some info about Niko
+: Niko ist 25 und studiert Wirtschaftsinformatik an der HWR-Berlin
 
 Matrikelnummer: 77211917927
 
-## Eidesstattliche Erklärung
+### Eidesstattliche Erklärung
 
 Die oben genannten Teammitglieder erklären an Eides statt:
 
@@ -26,3 +27,5 @@ Die oben genannten Teammitglieder erklären an Eides statt:
 
 Last build: {{ site.time | date: '%d %b %Y, %R%:z' }}
 {: .fs-2 }
+
+
