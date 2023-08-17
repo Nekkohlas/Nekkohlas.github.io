@@ -48,7 +48,7 @@ wird die Datum und aktuelle Uhrzeit in der Spalte gespeichert.
 
 **Zweck:**
 
-Die Klasse User ist die Klasse für die Userinnen Notizen und erbt von der db.Model-Klasse, welche wiederum eine SQLalchemy Modelklasse ist. 
+Die Klasse User ist die Klasse für die Userinnen-Notizen und erbt von der db.Model-Klasse, welche wiederum eine SQLalchemy Modelklasse ist. 
 Außerdem erbt die Userklasse UserMixin, welche weitere Eigenschaften implementiert wie is_authenticated, is_anonymous und andere.
  
 

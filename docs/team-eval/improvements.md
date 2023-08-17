@@ -46,7 +46,7 @@ Des Weiteren könnten ich klare Zeitpläne erstellen und abarbeiten, sodass das 
 
 ### 3. Früher (und nach Möglichkeit mehr) externes Feedback einholen
 
-Besonders die Benutzerinnen und Benutzer, die meine App freundlicherweise ausprobiert und Feedback gegeben haben, haben meinen Blickwinkel hinsichtlich
+Besonders die Userinnen, die meine App freundlicherweise ausprobiert und Feedback gegeben haben, haben meinen Blickwinkel hinsichtlich
 der Bedürfnisse potenzieller Nutzer erweitert. Dies hat mir verdeutlicht, dass selbst geringfügige Änderungen den Eindruck der Anwendung bei Dritten positiv verändern können.
 
 

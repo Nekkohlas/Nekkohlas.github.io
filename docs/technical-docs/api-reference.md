@@ -41,21 +41,18 @@ nav_order: 4
 
 **Methods:** `GET` `POST` 
 
-**Purpose:** Wenn eine nicht authentifizierte Benutzerin auf die /login-Route gelangt, wird das Login-Formular angezeigt, damit die Userin sich anmelden kann.
+**Purpose:** Wenn eine nicht authentifizierte Userin auf die /login-Route gelangt, wird das Login-Formular angezeigt, damit die Userin sich anmelden kann.
 
 **Funktionsweise:** 1.	Zu Beginn wird die Userin als current_user auf "anonym" gesetzt, da sie nicht eingeloggt ist.  
 2.	Sobald das benutzerdefinierte Loginformular abgesendet wird, validiert die Funktion die eingegebenen Daten, insbesondere die Email-Adresse.  
 3.	Die eingegebene Email-Adresse wird in der Datenbank gesucht. Falls die Email nicht gefunden wird, wird der Userin mitgeteilt, dass die Eingaben ungültig sind.  
-4.	Wenn die Email gefunden wird, wird das eingegebene Passwort mit dem gehashten Passwort in der Datenbank mittels check_password_hash verglichen.   Bei erfolgreicher Übereinstimmung wird der Benutzer mithilfe von login_user eingeloggt und auf die Homepage weitergeleitet.  
+4.	Wenn die Email gefunden wird, wird das eingegebene Passwort mit dem gehashten Passwort in der Datenbank mittels check_password_hash verglichen.   Bei erfolgreicher Übereinstimmung wird die Userin mithilfe von login_user eingeloggt und auf die Homepage weitergeleitet.  
 5.	Falls das eingegebene Passwort nicht mit dem gespeicherten Passwort übereinstimmt, wird die Userin aufgefordert, die Eingabe zu korrigieren.
 
 >> Die Funktion nutzt Flask-Login und den Loginmanager, um den gesamten Authentifizierungsprozess zu verwalten und die eingeloggte Userin zu setzen.
 
-**Sample output:**
 
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
 
----
 ## Anmeldefunktion
 
 ### `sign_up()`
@@ -73,8 +70,8 @@ nav_order: 4
 4.	Anschließend wird eine neue Instanz der User-Klasse erstellt, wobei das Passwort vor der Speicherung gehasht wird.  
 5.	Das Datenbankobjekt (db) fügt die erstellte Instanz der User-Klasse mithilfe von .add(new_user) zur Datenbank hinzu und speichert die Änderungen mit .commit().  
 6.	Die Methode login_user() wird ausgeführt, um die Userin einzuloggen und ihn in der aktuellen Sitzung zu registrieren.  
-7.	Eine Benachrichtigung (Flash-Nachricht) wird ausgegeben, um den Benutzer darüber zu informieren, dass der Anmeldeprozess erfolgreich abgeschlossen wurde.  
-8.	Der Benutzer wird anschließend auf die Home-Ansicht weitergeleitet.  
+7.	Eine Benachrichtigung (Flash-Nachricht) wird ausgegeben, um die Userin darüber zu informieren, dass der Anmeldeprozess erfolgreich abgeschlossen wurde.  
+8.	Die Userin wird anschließend auf die Home-Ansicht weitergeleitet.  
 
 
 **Sample output:**
@@ -117,7 +114,7 @@ nav_order: 4
 Die Daten, die über die POST-Anfrage gesendet werden, werden im JSON-Format übertragen und von der Funktion mithilfe von json.loads(request.data) gelesen.   Die extrahierten Daten werden in der Variablen note gespeichert.
 Die Variable noteId wird verwendet, um den Wert des Schlüssels "noteId" aus dem JSON-Objekt note zu extrahieren und zu speichern.  
 Anschließend wird mithilfe der Note.query.get(noteId) Methode die entsprechende Notiz in der Datenbank gesucht und in der Variable note gespeichert.  
-Es erfolgt eine Überprüfung, ob der aktuelle Benutzer (User), der die Anfrage sendet, der Besitzer der zu löschenden Notiz ist. Wenn dies der Fall ist, wird die Notiz mithilfe von db.session.delete(note) aus der Datenbank gelöscht. Der Benutzer erhält eine Benachrichtigung, dass die Notiz erfolgreich gelöscht wurde.  
+Es erfolgt eine Überprüfung, ob die aktuelle Userin, der die Anfrage sendet, der Besitzer der zu löschenden Notiz ist. Wenn dies der Fall ist, wird die Notiz mithilfe von db.session.delete(note) aus der Datenbank gelöscht. Die Userin erhält eine Benachrichtigung, dass die Notiz erfolgreich gelöscht wurde.  
 Die Änderungen werden in der Datenbank gespeichert, indem db.session.commit() aufgerufen wird.  
 Die delete_note() Funktion gibt als Rückgabewert eine leere JSON-Antwort zurück. Da die Notiz gelöscht wurde und keine weiteren Daten zurückgegeben werden müssen,   signalisiert die leere JSON-Antwort den erfolgreichen Abschluss des Löschvorgangs.
 
@@ -145,7 +142,7 @@ Die delete_note() Funktion gibt als Rückgabewert eine leere JSON-Antwort zurüc
 2.	Der Wert des Schlüssels "noteID" aus dem JSON-Objekt "note" wird extrahiert und in der Variable noteId abgespeichert.  
 3.	Die Notiz mit der entsprechenden "noteId" wird in der Datenbank gesucht und in der Variable note gespeichert.  
 4.	Es wird überprüft, ob die aktuelle Userin die Besitzerin der Notiz ist, bei der der Status geändert werden soll. Wenn dies der Fall ist, wird der Status der Notiz auf den gegenteiligen Wert gesetzt (umgekehrt).  
-5.	Der Benutzer wird über die durchgeführte Statusänderung der Notiz benach-richtigt. Eine Benachrichtigung wird mit flash() ausgegeben, um den Benutzer über die Statusänderung zu informieren.
+5.	Die Userin wird über die durchgeführte Statusänderung der Notiz benach-richtigt. Eine Benachrichtigung wird mit flash() ausgegeben, um die Userin über die Statusänderung zu informieren.
 6.	Die Funktion gibt eine leere JSON-Antwort zurück, da nach der Änderung des Notizstatus keine spezifischen Daten zurückgegeben werden müssen.  
 
 

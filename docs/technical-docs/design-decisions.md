@@ -41,28 +41,6 @@ nav_order: 5
 {:toc}
 </details>
 
-## 01: [Title]
-
-### Meta
-
-Status
-: **Work in progress** - Decided - Obsolete
-
-Updated
-: DD-MMM-YYYY
-
-### Problem statement
-
-[Describe the problem to be solved or the goal to be achieved. Include relevant context information.]
-
-### Decision
-
-[Describe **which** design decision was taken for **what reason** and by **whom**.]
-
-### Regarded options
-
-[Describe any possible design decision that will solve the problem. Assess these options, e.g., via a simple pro/con list.]
-
 ---
 >> da es keine weiteren Gruppenmitglieder gibt, wurden alle Entscheidungen von mir alleine getroffen
 
@@ -73,8 +51,6 @@ Updated
 Status
 : Work in progress - **Decided** - Obsolete
 
-Updated
-: DD-MMM-YYYY
 
 ### Problem statement
 
@@ -93,7 +69,7 @@ Nach meiner Recherche habe ich mich für SQLAlchemy entschieden, da es die Inter
 SQLAlchemy erlaubt weiter die Datenbankverbindung mit Python code herzustellen, SQL queries mit objektorientierter Programmierung und den workflow zu vereinfachen.    
 SQLAlchemy hat Datenbankmodelklassen. Mithilfe von weiteren Imports wie UserMixin kann die Instanz der Datenbankmodellklasse dann   Eigenschaften wie den Authentifizierungsstatus erben, was das Anzeigen der Ansichten vereinfacht. 
 
-Insgesamt gehe ich davon aus, dass durch das Nutzen von SQLAlchemy das Business-Ziel, die App Nutzbar zu machen, effizienter erreicht werden kann,   als durch das verwenden von CRUD SQL Praxis.
+Insgesamt gehe ich davon aus, dass durch das Nutzen von SQLAlchemy das Business-Ziel, die App nutzbar zu machen, effizienter erreicht werden kann,   als durch das verwenden von CRUD SQL Praxis.
 
 ---
 ## 02: Wie kann ich zeitnah UserInnen verwalten?
@@ -101,10 +77,8 @@ Insgesamt gehe ich davon aus, dass durch das Nutzen von SQLAlchemy das Business-
 ### Meta
 
 Status
-: **Work in progress** - Decided - Obsolete
+: Work in progress - **Decided** - Obsolete
 
-Updated
-: DD-MMM-YYYY
 
 #### problem statement
 
@@ -115,7 +89,7 @@ Ich muss einen Weg finden, UserInnen in einer Flaskanwendung einloggen, auslogge
 **Flask_login:**  
 
 Nach meiner Recherche bin ich schnell auf Flask Login und den Login_manager gestoßen.
-Aufgrund seiner Beliebtheit in der Community und den damit mannigfaltig vorhandenen Ressourcen, wie man die Erweiterung für Benutzerauthentifizierung nutzt, fiel mir die Entscheidungen relativ einfach. 
+Aufgrund seiner Beliebtheit in der Community und den damit mannigfaltig vorhandenen Ressourcen, wie man die Erweiterung für Userinnenauthentifizierung nutzt, fiel mir die Entscheidungen relativ einfach. 
 
 **UserMixin:**
 
@@ -131,8 +105,6 @@ https://flask-login.readthedocs.io/en/latest/
 Status
 : Work in progress- **Decided** - Obsolete
 
-Updated
-: DD-MMM-YYYY
 
 ### Problem statement
 
@@ -150,8 +122,6 @@ Hier habe der Einfachheit halber Flasks Flash-messages verwendet, da das Framewo
 Status
 : Work in progress - **Decided** - Obsolete
 
-Updated
-: DD-MMM-YYYY
 
 ### Problem statement
 
@@ -173,8 +143,6 @@ Da die Progressbar als Bootstrap Komponente der Idee sehr nahekam und für mich 
 Status
 : Work in progress - **Decided** - Obsolete
 
-Updated
-: DD-MMM-YYYY
 
 ### Problem statement
 
