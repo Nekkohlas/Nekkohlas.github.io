@@ -14,11 +14,11 @@ db = SQLAlchemy()       #erstellt Instanz SQLAlchemy-Klasse, = Bibl. um Arbeit m
 DB_NAME ="database.db"  #erstellt Var. die den Namen der Datenbank enthält/angibt
 
 # Quelle: https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/__init__.py bzw. https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/quickstart/#check-the-sqlalchemy-documentation "configure the extension"
-def create_app():               #Funktion um bei Aufruf die Anwendung zu erstellen
-    app = Flask(__name__)       #Standardweg um Flask Framework Instanz in __init__.py file zu erstellen
-    app.config['SECRET_KEY'] ='do not share this since its the secret key for a reason' #Secret Key signiert Sitzungsdaten, Server prüft, nicht vom Client manipulierbar
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'#Uniform resource Identifier mit dem die App arbeitet für DB. DB_Name wird eingefügt, Sqlite Datenbank 
-    db.init_app(app)#SQLAlch Instanz "db" Initialisierung und Bindung an "app" - App kann mit DB interagieren, Data abrufen und speichern...
+def create_app():                                                                           #Funktion um bei Aufruf die Anwendung zu erstellen
+    app = Flask(__name__)                                                                   #Standardweg um Flask Framework Instanz in __init__.py file zu erstellen
+    app.config['SECRET_KEY'] ='do not share this since its the secret key for a reason'     #Secret Key signiert Sitzungsdaten, Server prüft, nicht vom Client manipulierbar
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'                          #Uniform resource Identifier mit dem die App arbeitet für DB. DB_Name wird eingefügt, Sqlite Datenbank 
+    db.init_app(app)                                                                        #SQLAlch Instanz "db" Initialisierung und Bindung an "app" - App kann mit DB interagieren, Data abrufen und speichern...
     
 
     #der Code erstellt eine Flask-App und konfiguriert sie um mit SQLITE datenbank zu arbeiten. Die wird in database.db gespeichert. SQL Alch.Instanz "db" wird mit app verbunden

@@ -52,7 +52,7 @@ def logout():                               #logout Funktion
 def sign_up():
     form = register_form()
     
-    if form.validate_on_submit():   #überprüft Felder der Form, welche im Post gesendet werden, mit den in forms.py festgelegten Validatoren
+    if form.validate_on_submit():                       #überprüft Felder der Form, welche im Post gesendet werden, mit den in forms.py festgelegten Validatoren
         new_user = User(email=form.email.data, first_name=form.first_name.data, password=generate_password_hash(form.password.data, method='sha256'))
                                                         #user ist Datenbankmodell, überträgt formfelder direkt in die Datenbank mit Ausnahme Passwordfeldes, welches vorher gehashed wird.
         db.session.add(new_user)                        #neuer User soll in die Datenbank geschrieben werden
@@ -60,8 +60,8 @@ def sign_up():
         login_user(new_user, remember=True)             #log in the user #aktuelle Session wird auf User registriert
         flash('Account created!', category = 'success') #flash nachricht 
         
-        return redirect (url_for('views.home')) #url_for schaut welche Route für home seite verwendet wird und redirected zum Wiedergabewert 
+        return redirect (url_for('views.home'))         #url_for schaut welche Route für home seite verwendet wird und redirected zum Wiedergabewert 
         
 
-    return render_template("sign_up.html", user=current_user, form=form)#rendert template für signup, vorausgesetzt wir haben noch keine form daten 
-                                                                        #wenn keine formdaten, bieten wir dem nutzer die möglichkeit die formdaten einzugeben 
+    return render_template("sign_up.html", user=current_user, form=form)    #rendert template für signup, vorausgesetzt wir haben noch keine form daten 
+                                                                            #wenn keine formdaten, bieten wir dem nutzer die möglichkeit die formdaten einzugeben 
