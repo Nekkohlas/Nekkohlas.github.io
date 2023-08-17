@@ -16,42 +16,19 @@ nav_order: 4
   </summary>
   {: .text-delta }
   
-- [Platzhalterfunktion](#platzhalterfunktion)
+
 - [Loginfunktion](#loginfunktion)
 - [Anmeldefunktion](#anmeldefunktion)
 - [Logoutfunktion](#logoutfunktion)
-- [deleteNote](#deletenote)
 - [delete_note](#delete_note)
-- [Notizprüfung](#notizprüfung)
 - [Notizstatusänderung](#notizstatusänderung)
 - [Homeansicht](#homeansicht)
-- [Section / module](#section--module)
-- [Example, delete this section - Show to-do lists](#example-delete-this-section---show-to-do-lists)
-- [Example, delete this section - Insert sample data](#example-delete-this-section---insert-sample-data)
-
+- [Darkmode](#darkmode)
   
 {:toc}
 </details>
 
 
-
----
-
-## Platzhalterfunktion
-
-### `funktionsname()`
-
-**Route:** `/route/`
-
-**Methods:** `GET` `POST` 
-
-**Purpose:** [Short explanation of what the function does and why]
-
-**Funktionsweise:**
-
-**Sample output:**
-
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
 
 ---
 
@@ -121,31 +98,9 @@ nav_order: 4
 
 [Show an image, string output, or similar illustration -- or write NONE if function generates no output]
 
----
-
-## deleteNote(noteID)
-
-### `deleteNote(noteId)`
-
-**Route:** `/delete-note`
-
-**Methods:** `POST` 
-
-**Purpose:** Dient der Löschung von Notizen
-
-**Funktionsweise:**  Die Funktion ‚deleteNote“ erhält die ‚noteID‘ als Parameter übergeben. So wird die zu löschende Notiz identifiziert.   Mithilfe der FETCH.API wird eine asynchrone POST-Serveranfrage, die als http-Methode typischerweise für das Hinzufügen oder Aktualisieren von Daten genutzt werden, an den Endpunkt bei ‚/delete-note‘ gesendet.  
-
-**Anfragekörper:**  
-Der Anfragenkörper wird mit einem JavaScript-Objekt erstellt, das die ‚noteId‘ enthält. Das Objekt wird in JSON-String-Format umgewandelt, um die Datenstruktur zu standardisieren und Missverständnisse bei der Datenübertragung zu minimieren. Der JSON-String hat die Funktion des Anfragekörper und beinhaltet die ID der zu löschenden Notiz und wird folglich versendet.
-
-**Promise-Kette und Weiterleitung:**  
-Im Anschluss wird eine Promise-Kette mit ‚then‘ gestartet. Der Parameter ‚_res‘  ist die Serverantwort. Diese wird jedoch in diesem Fall nicht verarbeitet oder verwendet. Mit der ‚then‘-Funktion wird die window.location.href auf „/“ gesetzt.  
- Hierdurch wird der User nach der Löschung der Notiz auf die Hauptseite, also die root-URL weitergeleitet. Diese Weiterleitung impliziert, dass die Löschung der Notiz erfolgreich durchgeführt wurde.  
 
 
-**Sample output:**
 
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
 
 ---
 ## delete_note()
@@ -171,28 +126,8 @@ Die delete_note() Funktion gibt als Rückgabewert eine leere JSON-Antwort zurüc
 
 [Show an image, string output, or similar illustration -- or write NONE if function generates no output]
 
----
-## Notizprüfung
 
-### `checkNote(noteId)`
 
-**Route:** `/check-note`
-
-**Methods:** `POST` 
-
-**Purpose:** Prüfen des Notizstatus 
-
-**Funktionsweise:**  Die Funktion „checkNote” bekommt die „noteID“ als Parameter übergeben. So wird die zu prüfende Notiz identifiziert. Mithilfe der FETCH.API wird eine asynchrone POST-Serveranfrage, die als HTTP-Methode typischerweise für das Hinzufügen oder Aktualisieren von Daten genutzt werden, an den Endpunkt bei „/check-note“ gesendet.
-
-**Anfragekörper:**  
-Der Anfragenkörper wird mit einem JavaScript-Objekt erstellt, das die „noteID“ enthält. Das Objekt wird in JSON-String-Format umgewandelt, damit wird die Datenstruktur standardisiert sowie Missverständnisse bei der Datenübertragung minimiert und in der Folge als Anfragekörper versendet.
-
-**Promise-Kette und Weiterleitung:**  
-Im Anschluss wird eine Promise-kette mit „then“ gestartet. Der parameter „res“ ist die Serverantwort. Die Serverantwort wird hier jedoch nicht verarbeitet, das sie nicht verwendet wird. Mit der „then“  Funktion wird die window.location.href auf „/“ gesetzt. Hierdurch wird der User nach der Löschung der Notiz zur Hauptseite, also der root-URL weitergeleitet. Das weiterleiten impliziert, dass die Überprüfung der Notiz erfolgreich durchgeführt wurde. 
-
-**Sample output:**
-
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
 
 ---
 ## Notizstatusänderung
@@ -243,85 +178,19 @@ Die home() Funktion gibt ein HTML-Template ('home.html') zurück, in dem die üb
 
 ---
 
+## Darkmode
+
+### trigger_darkmode()
+
+**Route:** `/trigger-darkmode`
+
+**Methods:** 'POST'
+
+**Purpose:** Ermöglicht der Userin das Aktivieren und Deaktivieren des Darkmode
+
+**Funktionsweise:** 
+Wenn die Userin die Schaltfläche in der Navbar anklickt, wird für die gegenwärtige Userin der Darkmode auf den Gegenteiligen Status gesetzt.
+Im Anschluss wird die Userin darüber informiert, dass der Darkmode aktiviert wurde. 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## [Section / module]
-
-### `function_definition()`
-
-**Route:** `/route/`
-
-**Methods:** `POST` `GET` `PATCH` `PUT` `DELETE`
-
-**Purpose:** [Short explanation of what the function does and why]
-
-**Sample output:**
-
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
-
----
-
-## [Example, delete this section] Show to-do lists
-
-### `get_lists()`
-
-**Route:** `/lists/`
-
-**Methods:** `GET`
-
-**Purpose:** Show all to-do lists.
-
-**Sample output:**
-
-![get_lists() sample](../assets/images/fswd-intro_00.png)
-
----
-
-### `get_list_todos(list_id)`
-
-**Route:** `/lists/<int:list_id>`
-
-**Methods:** `GET`
-
-**Purpose:** Retrieve all to-do items of to-do list with ID `list_id` from database and present to user.
-
-**Sample output:**
-
-![get_list_todos() sample](../assets/images/fswd-intro_02.png)
-
----
-
-## [Example, delete this section] Insert sample data
-
-### `run_insert_sample()`
-
-**Route:** `/insert/sample`
-
-**Methods:** `GET`
-
-**Purpose:** Flush the database and insert sample data set
-
-**Sample output:**
-
-Browser shows: `Database flushed and populated with some sample data.`

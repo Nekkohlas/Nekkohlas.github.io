@@ -18,30 +18,39 @@ nav_order: 3
 {:toc}
 </details>
 
-## 01: [Title]
+## UserInnen Testlauf
 
 ### Meta
 
 Status
-: **Work in progress** - Done - Obsolete
+: Work in progress - **Done** - Obsolete
 
 Updated
 : DD-MMM-YYYY
 
-### Goal
+### Ziel
 
-[Describe the goal of this evaluation, for example as a research question like: "How long does it take to register a new account and what is the drop-out rate?"]
+Ziel dieser Evaluierung ist es, herauszufinden wie lange die UserInnen brauchen um von der Anmelde-/Registrierungsansicht in die Notizansicht zu gelangen, und auf der Grundlage des Feedbacks der Teilnehmer Verbesserungen am Design vorzunehmen.
 
-### Method
+### Methode:
 
-[Describe how you proceed to achieve your evaluation goal. Be as specific as possible: others should be able to replicate your evaluation by following the description on this section.]
+Zur Durchführung der Evaluierung habe ich mehrere UserInnen aus meinem sozialen Umfeld rekrutiert. UserInnen hatten die Aufgabe, die App vom Login bis zum Notizfenster zu navigieren. Anschließend sollten UserInnen entsprechende Erfahrungen mit der App kommentieren. Diese werden verwendet, um die Benutzerfreundlichkeit und das Design von "NiceNotes" zu verbessern.
 
-### Results
+### Ergebnisse:
 
-[Present the main results of your evaluation, for example: "On average, users need 3 min to register. The drop-out rate was 70%. Users that didn't complete provided the following reasons: ..."]
+Im Durchschnitt brauchten die UserInnen bis zu einer Minute, um ihr Konto zu erstellen und mit der Aufnahme von Notizen in der Notizenansicht zu beginnen. Die Abbrecherquote für die ausgewählte Population lag bei 0 %. Aufgrund des Feedbacks der UserInnen wurden mehrere Designänderungen vorgenommen. 
+Dazu gehören die folgenden:  
 
-### Implications
+- Implementieren des beliebten Darkmodes auf der Homeansicht  
+- Sortierung der Notizen in Offene und erledigte Notizen
 
-[What did you learn from this evaluation and what will you change to improve? Example: "We aim to decrease the drop-out rate by not asking for a birth date. We will re-run this evaluation to measure the impact."]
+Leider konnte ich aus zeitlichen Einschränkungen nicht mehr umsetzen:
+
+- Farbänderungen der Fortschrittanzeige in Abhängigkeit des Fortschritts
+
+### Auswirkungen:
+
+Durch die Evaluierung konnte ich wichtige Erkenntnisse über den Aspekt der Benutzerfreundlichkeit meines Projekts gewinnen. Zudem wurde mir auch die Bedeutung des Ressourcenmanagements vor Augen geführt, da ich entscheiden musste, welche Funktionen/Vorschläge der Studienteilnehmerinnen umgesetzt werden und welche auf der Grundlage des Zeit- und Arbeitsaufwands für ihre Umsetzung Konzepte bleiben sollten.
+
 
 ---

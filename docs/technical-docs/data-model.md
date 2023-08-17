@@ -59,6 +59,7 @@ Die User Klasse hat folgende Spalten:
 dass jede Email innerhalb der Tabelle eindeutig sein muss.  
 **Password:** ist eine Spalte vom Typ String mit einer Maximallänge von 150 Zeichen.  
 **First_name:** ist eine Spalte vom Typ String mit einer Maximallänge von 150 Zeichen  
+**Darkmode:** ist eine Spalte vom Typ Boolean, die angibt ob eine Userin Darkmode nutzen möchte, oder nicht.  
 >> Notes: ist eine Spalte die die Datenbankbeziehung zwischen der Notiz- und UserKlasse setzt. 
 
 ## Datenbank Entity Relationship Diagramm
