@@ -51,7 +51,12 @@ nav_order: 4
 
 >> Die Funktion nutzt Flask-Login und den Loginmanager, um den gesamten Authentifizierungsprozess zu verwalten und die eingeloggte Userin zu setzen.
 
+**Sample output:**
 
+![image](https://github.com/Nekkohlas/Nekkohlas.github.io/assets/134234209/f2fd9e67-501c-4c93-8fc0-2e4c7e8f8253)
+
+
+---
 
 ## Anmeldefunktion
 
@@ -76,7 +81,8 @@ nav_order: 4
 
 **Sample output:**
 
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
+![image](https://github.com/Nekkohlas/Nekkohlas.github.io/assets/134234209/799437bd-ddd5-4064-9da2-7a8198f4692b)
+
 
 ---
 ## Logoutfunktion
@@ -90,12 +96,6 @@ nav_order: 4
 **Purpose:** Mit der Logoutfunktion kann sich eine angemeldete Userin abmelden.
 
 **Funktionsweise:** Die Logoutroute hat durch den decorator @login_required die Zugriffsvoraussetzung, dass eine Userin eingeloggt ist.   Die logout Funktion loggt die gegenwärtig eingeloggte Userin mit der logout_user() Methode aus, ohne das ein User übergeben werden muss und säubert,   falls vorhanden, den remember me cookie. Wenn der logout Vorgang abgeschlossen ist, wird die Userin auf die login-URL weiterverwiesen.
-
-**Sample output:**
-
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
-
-
 
 
 
@@ -121,7 +121,8 @@ Die delete_note() Funktion gibt als Rückgabewert eine leere JSON-Antwort zurüc
 
 **Sample output:**
 
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
+![image](https://github.com/Nekkohlas/Nekkohlas.github.io/assets/134234209/cb315958-b808-438b-ae2b-8908027f766d)
+
 
 
 
@@ -148,7 +149,8 @@ Die delete_note() Funktion gibt als Rückgabewert eine leere JSON-Antwort zurüc
 
 **Sample output:**
 
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
+![image](https://github.com/Nekkohlas/Nekkohlas.github.io/assets/134234209/0718b6e2-ead5-45b0-8981-56270b122f4c)
+
 
 ---
 ## Homeansicht
@@ -171,7 +173,11 @@ Die home() Funktion gibt ein HTML-Template ('home.html') zurück, in dem die üb
 
 **Sample output:**
 
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
+![image](https://github.com/Nekkohlas/Nekkohlas.github.io/assets/134234209/6a8378b8-6936-4e8c-b239-b1d4d70cea13)
+![image](https://github.com/Nekkohlas/Nekkohlas.github.io/assets/134234209/9dcff422-11dc-4481-895f-d6daa10083c0)
+
+
+
 
 ---
 
@@ -190,4 +196,5 @@ Wenn die Userin die Schaltfläche in der Navbar anklickt, wird für die gegenwä
 Im Anschluss wird die Userin darüber informiert, dass der Darkmode aktiviert wurde. 
 
 
+![image](https://github.com/Nekkohlas/Nekkohlas.github.io/assets/134234209/6530b198-1c5b-4bc0-96c6-d6d96ed3ff1a)
 
