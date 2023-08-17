@@ -1,3 +1,9 @@
+# Quellen:
+# Der komplette code in diesem file ist übernommen aus: https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim
+# und dem dazugehörigen Code-Repository https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/__init__.py
+# Erklärungen / Kommentare nach meinem Verständnis aus https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim und  
+# https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/quickstart/#check-the-sqlalchemy-documentation, https://flask-login.readthedocs.io/en/latest/ 
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
@@ -7,7 +13,7 @@ from flask_login import LoginManager
 db = SQLAlchemy()       #erstellt Instanz SQLAlchemy-Klasse, = Bibl. um Arbeit mit Python Datenbanken zu erleichtern
 DB_NAME ="database.db"  #erstellt Var. die den Namen der Datenbank enthält/angibt
 
-
+# Quelle: https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/__init__.py bzw. https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/quickstart/#check-the-sqlalchemy-documentation "configure the extension"
 def create_app():               #Funktion um bei Aufruf die Anwendung zu erstellen
     app = Flask(__name__)       #Standardweg um Flask Framework Instanz in __init__.py file zu erstellen
     app.config['SECRET_KEY'] ='do not share this since its the secret key for a reason' #Secret Key signiert Sitzungsdaten, Server prüft, nicht vom Client manipulierbar
@@ -18,11 +24,11 @@ def create_app():               #Funktion um bei Aufruf die Anwendung zu erstell
     #der Code erstellt eine Flask-App und konfiguriert sie um mit SQLITE datenbank zu arbeiten. Die wird in database.db gespeichert. SQL Alch.Instanz "db" wird mit app verbunden
     #so können Datenbankoperationen durchgeführt werden, Secret key = sicherheit der app 
     
-    
+#Quelle: https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/__init__.py 
     from .views import views    #importiert code aus views.py, enthält Funkt. u. Routen f. Webanwendung
     from .auth import auth      #importiert code aus auth.py, "" 
 
-    
+#Quelle: https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/__init__.py    
     app.register_blueprint(views, url_prefix='/')   #Registriert views als Blueprint in Flaskapp. URL-Präfix =alle Routes in Blueprint beginnen mit '/'
     app.register_blueprint(auth, url_prefix='/')    #Registriert auth als Blueprint
 

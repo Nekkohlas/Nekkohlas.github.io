@@ -1,8 +1,14 @@
+# Quellen:
+# Ein Großteil des Code in diesem file ist übernommen aus: https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim
+# und dem dazugehörigen Code-Repository https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/models.py
+# Erklärungen / Kommentare nach meinem Verständnis aus https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/, https://flask-login.readthedocs.io/en/latest/ (UserMixin)
+
 from . import db                            #importiert Modul db aus dem aktuellen Verzeichnis, das ermöglicht wiederrum Nutzung von Funkt. und Meth. von SQLAlchemy um mit Datenbank zu arbeiten  
 from flask_login import UserMixin           #importiert UserMixin aus Modul "flask_login" - UM Klasse gibt implementation von is_authenticated(), is_active(),is_anonym(),get_id() Methoden
 from sqlalchemy.sql import func             #func aus sqlalchelmy.sql, bietet verschiedenen Funktionen für SQL Abfragen
 
-#User und Notiz Tabellen
+#User und Notiz Tabellen aus https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/models.py erweitert um done und darkmode spalten.
+
 class Note(db.Model):                                                       #Klasse "Note" erbt von db.Model -SQLalchemy Model Klasse
     id = db.Column(db.Integer, primary_key=True)                            #id ist eine Spalte vom Typ Integer, dient als Primarykey, i.e. jede Notiz einen eindeitigen Indentifikator
     data = db.Column(db.String(10000))                                      # Spalte "data" (für Notizen) vom Typ "String" mit einer max Länge von 10k Zeichen 
@@ -10,13 +16,12 @@ class Note(db.Model):                                                       #Kla
     done = db.Column(db.Boolean())                                          #booleanSpalte um den status der Notiz zu speichern (done flag)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))               #Spalte "user_id" in Datenbanktabelle, typ int, speichert f.key, der auf Benutzter verweist, dem die Notiz gehört
     #must pass existing valid users id (one to many relationship )
-    #Primärschlüssel der Tabelle auf die wir verweisen ist in Spalte 11 
- 
+     
 class User(db.Model, UserMixin):                    #inherit from db.Model(Klasse) (sqlalchemy Object), also inherit from UserMixin(Klasse) die zusätzliche FUnktionen und Eigenschafen enthält
                                                     #Alle Spalten die in der Datenbank gespeichert werden sollen in Nutzer-Objekt(en)
     id = db.Column(db.Integer, primary_key = True)  #jeder Benutzerdatensatz hat eine eindeutige ID vom Typ integer 
     email = db.Column(db.String(150), unique=True)  #email ist vom Typ String in der Datenbank, max. Länge von xxx Zeichen, unique=true bedeutet jede Email innerhalb Tabelle muss eindeutig sein
     password =db.Column(db.String(150))             #pw ist ebenfalls von Typ String in der Datenbank, max Länge xxx
     first_name = db.Column(db.String(150))          #wie oben
-    darkmode = db.Column(db.Boolean())
+    darkmode = db.Column(db.Boolean())              #Spalte um zu speichern, ob die Userin Darkmode haben möchte oder nicht 
     notes = db.relationship('Note')                 #setzt die Datenbankbeziehung zwischen "Note" Klasse und User-Klasse 

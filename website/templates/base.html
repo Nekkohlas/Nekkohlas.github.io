@@ -1,19 +1,32 @@
+{#  Quellen:
+    Der code in diesem file ist in Teilen übernommen aus: https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim
+    und dem dazugehörigen Code-Repository https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/templates/base.html
+
+#}
+
 <!DOCTYPE html>  {#indicate HTML code in doc and displayability in web browser#}
 <html>
 
-<head>  {#head opening Tag, contains meta information and links to external files#}
+<head>  
     <meta charset="utf-8" />    {#UTF-8 encoding, characters from diff. languages are displayed correctly hereby #}
-    <meta name="viewport" content="width=device-width, initial-scale=1" /> {#viewport settings for the device on which the webpage is displayed, proper 
-    scaling on diff screen sizes#}              {#cdn#}
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> {#viewport settings for the device on which the webpage is displayed, proper scaling on diff screen sizes#}              
+    {#cdn#}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"  
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />{#das hier sind sozusagen libraries für bootstrap
-    das setzt dann das alignment etc für das aussehen der bootstrapelemte, this linke links HTML doc to an external CSS file, links to the
-    Bootstrap framework, which provides styles and layouts for the webpage #}
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />{# links HTML doc to external CSS file, Bootstrap framework provides styles and layouts for the webpage #}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         crossorigin="anonymous" />{#link to external CSS file, includes add icons from the Font Awesome library#}
     <title>{% block title %}Home{% endblock %}</title> {#title bar of the browser, Home may be overridden in diff
-    parts of the code due to jinja templ language #}
+                                                        parts of the code due to jinja templating language #}
     <style>
+    
+    
+    /*
+    Quellen für Darkmode Regeln
+    https://developer.mozilla.org/en-US/docs/Web/CSS/border
+    https://www.w3schools.com/cssref/pr_background-color.php
+    https://developer.mozilla.org/en-US/docs/Web/CSS/:is
+    
+     */
         .darkmode {
             background-color: #171717;
         }
@@ -32,14 +45,14 @@
             border-radius: 0;
         }
     </style>
-</head> {#head closing Tag#}
+</head> 
 
-<body {% if user.darkmode %}class="darkmode"{% endif %}>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">{#erstellt navbar oben auf Webpage mit dunklem Hintergrund#}
-        <div class="d-flex justify-content-between">{#umschließt <a> elem und Button, flex container ordnet Elemente auf der linken Seite an#}
+<body {% if user.darkmode %}class="darkmode"{% endif %}>        {# wenn User Darkmode Attribut true werden die CSS regeln ab Codezeile 30 angewandt #}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">   {#erstellt navbar oben auf Webpage mit dunklem Hintergrund#}
+        <div class="d-flex justify-content-between">            {#umschließt <a> elem und Button, flex container ordnet Elemente auf der linken Seite an#}
             <a class="navbar-brand" href="/">NiceNotes</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">{#erstellt Button der Navbar zusammenklappt oder erweitert wenn angeklickt#}
-                <span class="navbar-toggler-icon"></span>   {#icon um Nutzen des Knopfes anzudeuten#}
+                <span class="navbar-toggler-icon"></span>       {#icon um Nutzen des Knopfes anzudeuten#}
             </button>
         </div>
         <div class="collapse navbar-collapse" id="navbar"> {#div element das Navigationslinks enthält und zusammenklappt oder erweitert basierend auf Zustand des Knopfes oben#}
@@ -52,6 +65,8 @@
                 <a class="nav-item nav-link" id="signUp" style="color: #fafdfb" href="/sign-up">Sign Up</a>
                 {% endif %}
             </div>
+
+            {# Navbar aus übernommenem code um Darkmode und User-Begrüßung erweitert #}
             {% if user.is_authenticated %}
             <div class="nav-item nav-text" style="color: #fafdfb" onclick="triggerDarkmode()">&#9728;</div>
             <div class="nav-item nav-text ml-auto" style="color: #fafdfb">Hallo {{user.first_name}}</div>
@@ -61,26 +76,25 @@
         </div>
     </nav>
 
-    {#quelle für below https://flask.palletsprojects.com/en/2.3.x/patterns/flashing/ #}
-    {% with messages = get_flashed_messages(with_categories=true) %}{#messages kriegt jegliche flashed messages welche zum Anzeigen von temporären Benachrichtigungen oder alerts für den User genutzt werden
-                                                                    messages ist variable die Liste hält mit flashmessages werten#}
-                                                                    {#getflashedmessages ist methode die vorher geflashte messages zurückgibt 
-                                                                     withmessages speichert die messages #}
-    {% if messages %} {#überprüft, ob messages vorhanden, wenn true, führt folgenden code aus#}
-    {%for category, message in messages %} {# loop iteriert über jede message in message Variable - für jede Iterarion werden die Katergorie und message Werte in die entsprechende Variable geschrieben
+    {# Quelle für Code in Zeile 83 bis 174: https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/templates/base.html #}
+    {#                          weitere Quelle für flashing w/ categories https://flask.palletsprojects.com/en/2.3.x/patterns/flashing/ #}
+    {% with messages = get_flashed_messages(with_categories=true) %}    {# messages kriegt jegliche flashed messages welche zum Anzeigen von temporären Benachrichtigungen oder alerts für den User genutzt werden
+                                                                           messages ist variable die Liste hält mit flashmessages Werten#}
+                                                                        {# getflashedmessages ist methode die vorher geflashte messages zurückgibt 
+                                                                            withmessages speichert die messages #}
+    {% if messages %}                                                   {#überprüft, ob messages vorhanden, wenn true, führt folgenden code aus#}
+    {%for category, message in messages %} {# loop iteriert über jede message in messages Variable - für jede Iterarion werden die Katergorie und message Werte in die entsprechende Variable geschrieben
      #}
     {%if category =='error' %} {# wenn category error == true führt folgenden code aus #}
-    <div class="alert alert-danger alter-dismissable fade show" role="alert">{#div element repräsentiert alert (altert-danger), class attr fügt style (rot und danger message), role attr = Zweck, i.e. Alarm - erstellt eine Box die eine rote Warn-Nachricht ausgibt #}
-        {{message}} {# message ist Platzhalter für Wert der dynamisch ausgefüllt wird #}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">   {#div element repräsentiert alert (altert-danger), class attr fügt style (rot und danger message), role attr = Zweck, i.e. Alarm - erstellt eine Box die eine rote Warn-Nachricht ausgibt #}
+        {{message}}                                                             {# message ist Platzhalter für Wert der dynamisch ausgefüllt wird #}
         <button type="button" class="close" data-dismiss="alert">{# button hat kein default behaviour , class="close" fügt Stil hinzu, data-dismiss="alert" Attribut lässt alert schließen wenn angeklickt
         #}
             <span aria-hidden="true">&times;</span> {# &times ist Multiplikation x => button sieht aus wie ein kleines x, aria hidden="true" entfernt das element und alle children vom acessibility tree, da es nur ein dekoratives Ikon ist. #}
         </button>
     </div>
     {% else %}
-    <div class="alert alert-success alter-dismissable fade show" role="alert">{# altert altert-success https://getbootstrap.com/docs/4.0/components/alerts/ 
-    öffnet ein div element mit spezifischen CSS Klassen, erstellt eine stylisierte Alarmbox die auf eine erfolgreiche Nachricht (grün) deutet (alert-sucess)
-    #}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">{# alert alert-success Quelle f. Verständnis: https://getbootstrap.com/docs/4.0/components/alerts/  #}
         {{message}} {#Platzhalter für dynamischen Inhalt#}
         <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span> 
@@ -89,7 +103,7 @@
     {% endif %}
     {% endfor %}
     {% endif%}
-    {% endwith%}{# end statements for enfif, endfor, endif and endwith #}
+    {% endwith%}
 
 
     <div class="container"> 
@@ -107,31 +121,34 @@
         {#Jquery#}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>  {#        
+        crossorigin="anonymous"></script>  
+        {#        
         lädt poppers.js um BootStrap hinzuzufügen, damit html elemente ordentlich positioniert werden. popper.min.js, src ist der Pfad, SHA-384-Hash, um sicherzustellen, 
         dass die Datei während des Herunterladens nicht verändert wurde, crossorigin="anonymous" bedeutet, dass das Skript in einem anonymen Kontext ausgeführt wird, was wiederum 
         eine weitere Sicherheitsebene für die website und den B enutzer bietet. Der anonyme Kontext wird normalerweise verwendet, wenn ein Skript keine spezielle Autorisierung benötigt und
         nur auf bestimmte Funkt ionen oder Bibliotheken zugreifen muss. crossorigin anonymous besagt, dass das Skript keine herkunftsübergreifenden Beschränkungen hat und
         von einer beliebigen Quelle (Domain-Protokoll oder Port) ausgeführt werden kann, ohne dass eine spezielle Autorisierung erforderlich ist.
+        Quelle für Erklärung:ChatGpt und https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim
         #}
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script> {# Quell-URL der Javascript-Datei, sie verweist auf die Version der Bootstrap-Bibliothek, die im maxcdn Delivery Network gehostet wird
+        crossorigin="anonymous"></script> 
+        {# Quell-URL der Javascript-Datei, sie verweist auf die Version der Bootstrap-Bibliothek, die im maxcdn Delivery Network gehostet wird
         integrity sha ... ist das Integritätsattribut, das den Hashwert enthält, der sicherstellt, dass die Datei während der Übertragung nicht verfälscht wurde und eine
         eine Sicherheitsmaßnahme, um die Integrität und Authentizität der Datei zu überprüfen
-        corrorigin - wiederum sorgt dafür, dass das Skript keine spezifischen Anmeldeinformationen oder sensiblen Daten vom Server benötigt. insgesamt
-        Diese Bootstrap-Javascript-Datei ermöglicht es uns, die interaktiven Komponenten und Funktionen von Bootstrap-Dropdown-Menüs, Modellen und mehr zu nutzen ..#}
-
+        corrorigin - wiederum sorgt dafür, dass das Skript keine spezifischen Anmeldeinformationen oder sensiblen Daten vom Server benötigt. 
+        Diese Bootstrap-Javascript-Datei ermöglicht es, die interaktiven Komponenten und Funktionen von Bootstrap-Dropdown-Menüs, Modellen und mehr zu nutzen ..
+        Quelle für Erklärung: ChatGpt und https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim, https://getbootstrap.com/docs/4.1/getting-started/introduction/ #}
 
     {# code block ist in jinja templating Sprache geschrieben und wird verwendet um javascript Funktionen innerhalb einer html template zu definieren#}
 
     {% block javascript %}                              {#block of code specifically for JavaScript as a placeholder, which can be overridden in child templates#}
     <script type="text/javascript">                     //spezifiziert javascript block innerhalb der html datei 
-        function deleteNote(noteId) {                   // definiert JScript Funktion "deleteNote" mit param "noteID" (um Notizen zu löschen)
-            if (!confirm("Sicher löschen?")) return;    //Fast return - in JScript ist eine Technik, die verwendet wird, um eine Funktion frühzeitig zu verlassen und die Ausführung innerhalb
-                                                        //dieser Funktion zu verhindern, wenn die Bedingung erfüllt ist. Wenn sicher löschen nicht bestätigt wird, wird weiterer Code nicht ausgeführt!
+        function deleteNote(noteId) {                   //definiert JScript Funktion "deleteNote" mit param "noteID" (um Notizen zu löschen)
+            if (!confirm("Sicher löschen?")) return;    //Fast return - in JScript ist eine Technik, die verwendet wird, um eine Funktion frühzeitig zu verlassen
+                                                        
             
             /*
              
@@ -144,8 +161,10 @@
             zurückgegebenen Daten zu verarbeiten.
             Fetch-API ist ein Werkzeug für die Arbeit mit serverseitigen Ressourcen und den Austausch von Daten zwischen CLient und SErver in Webanwendungen. Es 
             vereinfacht den Prozess der http-Anfragen und bietet eine modernere und intuitivere Möglichkeit mit Netzwerken und ANfragen in Javascript zu arbeiten.
-            Quelle: chatbot, wikipedia und andere
+            Quelle für Erklärung: ChatGPT, wikipedia und andere
             */
+        
+          
             fetch("/delete-note", {
                 method: "POST",
                 body: JSON.stringify({ noteId: noteId }),
@@ -160,10 +179,11 @@
              JSON string kann dann an den Server geschickt werden, als Teil einer HTTP request payload .
              }).then((_res) => { startet eine promise chain, sobald der Server auf die Anfrage anwortet, wird der folgende code ausgeführt;
              window.location.href = "/"; leitet den User dann zu der root URL "/" nachdem die Notiz-Löschung erfolgreich war 
-             Quelle: ChatGPT, wikipedia und andere
+             Quelle für Erklärung: ChatGPT, wikipedia und andere
              */
 
         }        
+        /* Quelle: checkNote von deleteNote übernommen und abgewandelt */
         function checkNote(noteId){
             fetch('/check-note', {
                 method: "POST",
@@ -185,6 +205,9 @@
             window.location.href ="/"; leitet den user zu "/" root url weiter, nachdem die Notizprüfung durchgeführt wurde
 
             */
+
+        /* Quelle: triggerDarkmode ebenfalls deleteNote nachempfunden und abgewandelt 
+        */
         function triggerDarkmode() {
             fetch('/trigger-darkmode', {
                 method: 'POST',
@@ -202,12 +225,12 @@
     uses a template expression {{ }}to generate the URL using a server side framework or template engine
     url_for function (provided by web framework such as Flask..
     this basically generates the URL for the "index.js" file located in the static directory)
-    
+     Quelle für Erklärung: ChatGPT, https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim
     #}
     <script     
         type="text/javascript"
         src=    "{{ url_for('static', filename='index.js') }}"
 
-</body> // closing tag of body element, marks end of visible content on the html documnet
+</body> 
 
-</html> // ends the end of the html element 
+</html> 

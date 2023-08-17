@@ -1,14 +1,19 @@
+{#  Quellen:
+    Der code in diesem file ist in Teilen übernommen aus: https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim
+    und dem dazugehörigen Code-Repository   https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/templates/login.html
+    und wurde geändert
+#}
 {% extends "base.html" %} 
 {% block title %}Login{% endblock %}
 
 {% block content %}
 <form action="{{ request.path }}" method="POST">
-    {{ form.csrf_token }} {#von wtforms validiert#}
+    {{ form.csrf_token }} {#von wtforms validiert, Quelle: https://wtforms.readthedocs.io/en/2.3.x/csrf/#}
     <h3 align="center">Login</h3>
     <div class="form-group">
-        {{ form.email(class_="form-control",placeholder="E-mail", value=prev_login)}}
+        {{ form.email(class_="form-control",placeholder="E-mail", value=prev_login)}} {# holt email Feld aus wtforms login und fügt Klassen hinzu, setzt Placeholder und Wert des vorh. fehlgeschlagenen Logins#}
     </div>
-    {% for error in form.email.errors %}
+    {% for error in form.email.errors %}    {# For loop für wenn Fehler vorhanden, gibt den jeweiligen Fehler aus#}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         {{ error }}
     </div>
@@ -16,16 +21,16 @@
     
     
     <div class="form-group">
-        {{ form.password(class_="form-control",placeholder="Password")}}
+        {{ form.password(class_="form-control",placeholder="Password")}} {# holt passwordFeld aus wtforms login und fügt Klassen hinzu#}
     </div>
 
-    {% for error in form.password.errors %}
+    {% for error in form.password.errors %} {# For loop für wenn Fehler vorhanden, gibt den jeweiligen Fehler aus#}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             {{ error }}
         </div>
     {% endfor %}
   
     <br />
-    <button type="submit" class ="btn btn-primary">Login</button>
+    <button type="submit" class ="btn btn-primary">Login</button> {# submit button, um Eingaben abzusenden #}
 </form>
 {% endblock %}

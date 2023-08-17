@@ -1,3 +1,6 @@
+#Quellen: https://flask.palletsprojects.com/en/2.3.x/patterns/wtforms/, https://wtforms.readthedocs.io/en/2.3.x/validators/ 
+# Schema von/aus den Quellen abgewandelt
+
 from wtforms import *
 from flask_wtf import FlaskForm
 from wtforms.validators import *
@@ -9,12 +12,12 @@ class register_form(FlaskForm):     #class register_form that inherits from Flas
     email = StringField(            #email is a StringField - email input is handled as StringField 
         validators=[                #validators=[ is a List of validators that are applied to the emailfield - validators handle input criteria
             InputRequired(),        #InputRequired validates that input was provided for this field 
-            Length(10, 32),          #Length(min ,max) validates the length of a string
+            Length(10, 32),         #Length(min ,max) validates the length of a string
             Email(),                #Email() validates an valid email address, requires email_validator to be installed 
         ]
     )
-    first_name = StringField(      #first_name is a Stringfield, such is its handling 
-        validators=[                # validators that are applied on first_name
+    first_name = StringField(       #first_name is a Stringfield, such is its handling 
+        validators=[                #validators that are applied on first_name
             InputRequired(),        #validates that input was provided
             Length(2, 32),          #validates min and max length of provided input
         ]

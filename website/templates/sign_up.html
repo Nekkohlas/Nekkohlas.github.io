@@ -1,11 +1,19 @@
+{#  Quellen:
+    Der code in diesem file ist in Teilen übernommen aus: https://www.youtube.com/watch?v=dam0GPOAvVI&t=710s&ab_channel=TechWithTim
+    und dem dazugehörigen Code-Repository   https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/templates/sign_up.html
+    und wurde geändert
+#}
+
 {% extends "base.html" %} {%block title%}Sign Up{% endblock%}
 
 {%block content%}
-{#<h1>This is the sign up page</h1>#}
+
+
+{# Vgl. login.html #}
 
 <form method="POST">
     <h3 align="center">Sign Up</h3>
-    {{ form.csrf_token }}
+    {{ form.csrf_token }} 
     <div class="form-group">
         {{ form.email(class_="form-control",placeholder="Email")}}
     </div>
