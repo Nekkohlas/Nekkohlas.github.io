@@ -64,12 +64,12 @@ nav_order: 4
 **Purpose:** Die Funktion sign_up() ermöglicht UserInnen die Registrierung für die Anwendung über die Sign-up Route
 
 **Funktionsweise:**
-1.	Wenn eine Userin die /sign-up-Route aufruft, wird zuerst die zugehörige Template gerendert, die die gegenwärtigee (anonymen) Userin anzeigt.  
+1.	Wenn eine Userin die /sign-up-Route aufruft, wird zuerst das zugehörige Template gerendert, die die gegenwärtige (anonymen) Userin anzeigt.  
 2.	Ein individuelles Formular für die Registrierung wird dargestellt, um die notwendigen Registrierungsinformationen einzuholen.  
 3.	Wenn die Userin Eingaben tätigt und das Formular absendet, werden die eingegebenen Daten mithilfe der .validate_on_submit() Methode validiert.  
 4.	Anschließend wird eine neue Instanz der User-Klasse erstellt, wobei das Passwort vor der Speicherung gehasht wird.  
 5.	Das Datenbankobjekt (db) fügt die erstellte Instanz der User-Klasse mithilfe von .add(new_user) zur Datenbank hinzu und speichert die Änderungen mit .commit().  
-6.	Die Methode login_user() wird ausgeführt, um die Userin einzuloggen und ihn in der aktuellen Sitzung zu registrieren.  
+6.	Die Methode login_user() wird ausgeführt, um die Userin einzuloggen und in der aktuellen Sitzung zu registrieren.  
 7.	Eine Benachrichtigung (Flash-Nachricht) wird ausgegeben, um die Userin darüber zu informieren, dass der Anmeldeprozess erfolgreich abgeschlossen wurde.  
 8.	Die Userin wird anschließend auf die Home-Ansicht weitergeleitet.  
 
@@ -114,7 +114,7 @@ nav_order: 4
 Die Daten, die über die POST-Anfrage gesendet werden, werden im JSON-Format übertragen und von der Funktion mithilfe von json.loads(request.data) gelesen.   Die extrahierten Daten werden in der Variablen note gespeichert.
 Die Variable noteId wird verwendet, um den Wert des Schlüssels "noteId" aus dem JSON-Objekt note zu extrahieren und zu speichern.  
 Anschließend wird mithilfe der Note.query.get(noteId) Methode die entsprechende Notiz in der Datenbank gesucht und in der Variable note gespeichert.  
-Es erfolgt eine Überprüfung, ob die aktuelle Userin, der die Anfrage sendet, der Besitzer der zu löschenden Notiz ist. Wenn dies der Fall ist, wird die Notiz mithilfe von db.session.delete(note) aus der Datenbank gelöscht. Die Userin erhält eine Benachrichtigung, dass die Notiz erfolgreich gelöscht wurde.  
+Es erfolgt eine Überprüfung, ob die aktuelle Userin, welche die Anfrage sendet, der Besitzerin der zu löschenden Notiz ist. Wenn dies der Fall ist, wird die Notiz mithilfe von db.session.delete(note) aus der Datenbank gelöscht. Die Userin erhält eine Benachrichtigung, dass die Notiz erfolgreich gelöscht wurde.  
 Die Änderungen werden in der Datenbank gespeichert, indem db.session.commit() aufgerufen wird.  
 Die delete_note() Funktion gibt als Rückgabewert eine leere JSON-Antwort zurück. Da die Notiz gelöscht wurde und keine weiteren Daten zurückgegeben werden müssen,   signalisiert die leere JSON-Antwort den erfolgreichen Abschluss des Löschvorgangs.
 
@@ -135,14 +135,14 @@ Die delete_note() Funktion gibt als Rückgabewert eine leere JSON-Antwort zurüc
 
 **Methods:** `POST` 
 
-**Purpose:** Wird aufgerufen, wenn die Route /check-note mit der POST-Methode aufgerufen wird 
+**Purpose:** Wird aufgerufen, wenn die Route /check-note mit der POST-Methode aufgerufen wird.
 
 **Funktionsweise:**  
 1.	In der Variable note werden die Daten aus der POST-Anfrage im JSON-Datenformat gespeichert.  
 2.	Der Wert des Schlüssels "noteID" aus dem JSON-Objekt "note" wird extrahiert und in der Variable noteId abgespeichert.  
 3.	Die Notiz mit der entsprechenden "noteId" wird in der Datenbank gesucht und in der Variable note gespeichert.  
 4.	Es wird überprüft, ob die aktuelle Userin die Besitzerin der Notiz ist, bei der der Status geändert werden soll. Wenn dies der Fall ist, wird der Status der Notiz auf den gegenteiligen Wert gesetzt (umgekehrt).  
-5.	Die Userin wird über die durchgeführte Statusänderung der Notiz benach-richtigt. Eine Benachrichtigung wird mit flash() ausgegeben, um die Userin über die Statusänderung zu informieren.
+5.	Die Userin wird über die durchgeführte Statusänderung der Notiz benachrichtigt. Eine Benachrichtigung wird mit flash() ausgegeben, um die Userin über die Statusänderung zu informieren.
 6.	Die Funktion gibt eine leere JSON-Antwort zurück, da nach der Änderung des Notizstatus keine spezifischen Daten zurückgegeben werden müssen.  
 
 
@@ -159,14 +159,14 @@ Die delete_note() Funktion gibt als Rückgabewert eine leere JSON-Antwort zurüc
 
 **Methods:** `GET` `POST` 
 
-**Purpose:** Ermöglicht es dem Nutzer Notizen zu erstellen und den Fortschritt zu berechnen
+**Purpose:** Ermöglicht es dem Nutzer Notizen zu erstellen und den Fortschritt zu berechnen.
 
 **Funktionsweise Notiz erstellen:**
 Wenn die home() Funktion aufgerufen wird, überprüft sie den Anfragetyp. Wenn die Anfrage vom Typ POST ist, wird der Wert, der im Feld 'note' übermittelt wurde,   mithilfe von request.form.get abgerufen. Falls die Länge der Notiz kleiner als 1 ist, wird der Userin eine Fehlermeldung angezeigt, die besagt, dass die Notiz zu kurz ist.   Wenn die Länge ausreichend ist, wird eine neue Instanz der Note Klasse erstellt. Diese Instanz enthält die Eingabedaten ('data') sowie die ID der aktuellen Userin ('user_id'). Anschließend wird die neue Notiz in die Datenbank eingefügt und die Änderungen mit db.session.commit() gespeichert.  Die Userin erhält eine Erfolgsmeldung, die besagt, dass die Notiz erfolgreich hinzugefügt wurde.
 
 **Funktionsweise Berechnen des Fortschritts:**
-Mittels einer Schleife (for loop) wird für jede Notiz der aktuellen Userin überprüft, ob sie als erledigt ('done') markiert ist.   Falls dies der Fall ist, wird der Fortschrittcount er ('progress') erhöht. Danach wird der Wert des Fortschrittcounters durch die Anzahl der Notizen der aktuellen Userin geteilt und mit 100 multipliziert,   um den Fortschritt in Prozent zu berechnen.
-Die home() Funktion gibt ein HTML-Template ('home.html') zurück, in dem die übergebenen Parameter current_user (aktuelle Userin und progress (berechneter Fortschritt in Prozent) verwendet werden, um die Benutzeroberfläche darzustellen.
+Mittels einer Schleife (for loop) wird für jede Notiz der aktuellen Userin überprüft, ob sie als erledigt ('done') markiert ist.   Falls dies der Fall ist, wird der Fortschrittcounter ('progress') erhöht. Danach wird der Wert des Fortschrittcounters durch die Anzahl der Notizen der aktuellen Userin geteilt und mit 100 multipliziert,   um den Fortschritt in Prozent zu berechnen.
+Die home() Funktion gibt ein HTML-Template ('home.html') zurück, in dem die übergebenen Parameter current_user (aktuelle Userin) und progress (berechneter Fortschritt in Prozent) verwendet werden, um die Benutzeroberfläche darzustellen.
 
 
 **Sample output:**

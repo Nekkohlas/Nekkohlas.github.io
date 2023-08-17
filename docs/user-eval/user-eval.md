@@ -3,8 +3,7 @@ title: User Evaluation
 nav_order: 3
 ---
 
-[Jane Dane]
-{: .label }
+
 
 # [User evaluation]
 {: .no_toc }
@@ -25,12 +24,12 @@ nav_order: 3
 Status
 : Work in progress - **Done** - Obsolete
 
-Updated
-: DD-MMM-YYYY
+
+
 
 ### Ziel
 
-Ziel dieser Evaluierung ist es, herauszufinden wie lange die UserInnen brauchen um von der Anmelde-/Registrierungsansicht in die Notizansicht zu gelangen, und auf der Grundlage des Feedbacks der Teilnehmer Verbesserungen am Design vorzunehmen.
+Ziel dieser Evaluierung ist es, herauszufinden, wie lange die UserInnen brauchen um von der Anmelde-/Registrierungsansicht in die Notizansicht zu gelangen, und auf der Grundlage des Feedbacks der Teilnehmer Verbesserungen am Design vorzunehmen.
 
 ### Methode:
 
@@ -42,7 +41,7 @@ Im Durchschnitt brauchten die UserInnen bis zu einer Minute, um ihr Konto zu ers
 Dazu gehören die folgenden:  
 
 - Implementieren des beliebten Darkmodes auf der Homeansicht  
-- Sortierung der Notizen in Offene und erledigte Notizen
+- Sortierung der Notizen in offene und erledigte Notizen
 
 Leider konnte ich aus zeitlichen Einschränkungen nicht mehr umsetzen:
 

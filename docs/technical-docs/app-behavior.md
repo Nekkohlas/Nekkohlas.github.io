@@ -26,11 +26,11 @@ nav_order: 2
 ## Registrierung:
 Beim ersten Besuch von NiceNotes landen neue Userinnen auf der Login-Seite.  
 Um sich anzumelden, müssen sie ein UserInnenprofil erstellen.  
-In der Navbar gibt es einen Button, der zur Registrierungsansicht führt.  Solange die UserInnen noch nicht registriert ist, wird er in der Navbar als "Gast" begrüßt.  
+In der Navbar gibt es einen Button, der zur Registrierungsansicht führt.  Solange die Userinnen noch nicht registriert ist, wird er in der Navbar als "Gast" begrüßt.  
 Eingaben in den Registrierungsfeldern müssen den vorgegebenen Formatierungen entsprechen. Andernfalls wird die Userin aufgefordert, die Eingaben entsprechend anzupassen.  
 Wenn alle Eingaben den Anforderungen entsprechen, wird geprüft, ob die eingegebenen Passwörter übereinstimmen.   Andernfalls erhält die Userin eine entsprechende Benachrichtigung.  
-Nach erfolgreicher Validierung der Eingaben wird die Userin registriert.   Sein Profil wird in der Datenbank mit einer eindeutigen ID erstellt, und er erhält eine Bestätigung über den erfolgreichen Vorgang.  
-Schließlich wird der nun registrierte Userin zur Home-Ansicht weitergeleitet.
+Nach erfolgreicher Validierung der Eingaben wird die Userin registriert.   Das Profil wird in der Datenbank mit einer eindeutigen ID erstellt, und Userin erhält eine Bestätigung über den erfolgreichen Vorgang.  
+Schließlich wird die nun registrierte Userin zur Home-Ansicht weitergeleitet.
 
 ## Anmeldung nach Registrierung:
 Bei zukünftigen Besuchen können registrierte Userinnen sich direkt von der Login-Seite aus anmelden, sofern sie die korrekten Anmeldedaten eingeben.

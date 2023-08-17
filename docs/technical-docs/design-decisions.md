@@ -62,12 +62,12 @@ Ich habe mich aus folgenden Gründen für SQLAlchemy entschieden:
 
 **Fehler vermeiden**  
 
-Nach meiner Recherche habe ich mich für SQLAlchemy entschieden, da es die Interaktion mit der Datenbank erleichtert. Somit werden auch etwaige Tippfehler, die sich einschleichen könnten verhindert.   
+Nach meiner Recherche habe ich mich für SQLAlchemy entschieden, da es die Interaktion mit der Datenbank erleichtert. Somit werden auch etwaige Tippfehler, die sich einschleichen könnten, verhindert.   
 
 **Objektorientierung** 
 
 SQLAlchemy erlaubt weiter die Datenbankverbindung mit Python code herzustellen, SQL queries mit objektorientierter Programmierung und den workflow zu vereinfachen.    
-SQLAlchemy hat Datenbankmodelklassen. Mithilfe von weiteren Imports wie UserMixin kann die Instanz der Datenbankmodellklasse dann   Eigenschaften wie den Authentifizierungsstatus erben, was das Anzeigen der Ansichten vereinfacht. 
+SQLAlchemy hat Datenbankmodellklassen. Mithilfe von weiteren Imports wie UserMixin kann die Instanz der Datenbankmodellklasse dann   Eigenschaften wie den Authentifizierungsstatus erben, was das Anzeigen der Ansichten vereinfacht. 
 
 Insgesamt gehe ich davon aus, dass durch das Nutzen von SQLAlchemy das Business-Ziel, die App nutzbar zu machen, effizienter erreicht werden kann,   als durch das verwenden von CRUD SQL Praxis.
 
@@ -80,7 +80,7 @@ Status
 : Work in progress - **Decided** - Obsolete
 
 
-#### problem statement
+#### Problem statement
 
 Ich muss einen Weg finden, UserInnen in einer Flaskanwendung einloggen, ausloggen und erinnern zu können, um an der eigentlichen App zu arbeiten.
 
@@ -108,7 +108,7 @@ Status
 
 ### Problem statement
 
-Ich muss einen weg finden, mit den UserInnen zu kommunizieren, ob Aktionen erfolgreich waren
+Ich muss einen weg finden, mit den UserInnen zu kommunizieren, ob Aktionen erfolgreich waren.
 
 ### Decision
 Hier habe der Einfachheit halber Flasks Flash-messages verwendet, da das Framework diese Erweiterung anbietet und für den Zweck der Anwendung ausreicht.
@@ -146,11 +146,11 @@ Status
 
 ### Problem statement
 
-Da das speichern von Passwörtern in plaintext aus Sicherheitsgründen nicht diskutabel ist, muss ich einen Weg finden, die Passwörter sicher zu speicehrn.
+Da das speichern von Passwörtern in plaintext aus Sicherheitsgründen indiskutabel ist, muss ich einen Weg finden, die Passwörter sicher zu speichern.
 
 ### Decision
 
-Um die Passwörter nicht in Klartext zu speichern, habe ich entschieden das Passwort der UserInnen zu hashen. Bei meiner Recherche bin ich auf werkzeug.security und generate_password_hash und check_password_hash gestoßen.  
+Um die Passwörter nicht in Klartext zu speichern, habe ich entschieden, das Passwort der UserInnen zu hashen. Bei meiner Recherche bin ich auf werkzeug.security und generate_password_hash und check_password_hash gestoßen.  
 Ausschlaggebend für die Entscheidung diese zu verwenden waren meine begrenzten Kenntnisse in diesen Dingen sowie die vielfältigen Ressourcen, wo die Vorgehensweise dargelegt wird.
 
 ---
