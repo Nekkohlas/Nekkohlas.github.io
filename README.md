@@ -1,66 +1,57 @@
-# Projekt NiceNotes
+# Inhalt des Repository
 
-## Table of Contents
+Dieses Repository enthält den Code für die Notizapp NiceNotes und die Präsentationsunterlagen.
 
-- [Projekt, Name, Eidesstattliche Erklärung](#projekt)
-- [Value proposition](#value-proposition)
-- [App structure](#app-structure)
-- [App behaviour](#app-behaviour)
-- [Data model](#data-model)
-- [API reference](#api-reference)
-- [Design decisions](#design-decisions)
-- [User evaluation](#user-evaluation)
-- [Goals achieved and missed](#goals-achieved-and-missed)
-- [What I would improve in the future](#what-i-would-improve-in-the-future)
-- [Peer review](#peer-review)
 
-## Projekt
+## Steps to execute the example code
 
-NiceNotes ist eine App bei der Nutzer*innen Notizen eintragen und nachverfolgen können. Mithilfe einer Anzeige können Nutzer*innen leicht nachvollziehen, wie viel Fortschritt schon gemacht wurde und was noch an Erledigungen zu tun ist. 
+**Step 1:** Klonen Sie das Repository https://github.com/Nekkohlas/Nekkohlas.github.io.git (dieses repository)
 
-### Daten zu Gruppenmitgliedern, Eidesstattliche Erklärung
-**Name:** Nikolas Teuber, Matrikelnummer: 77211917927
 
-### Eidesstattliche Erklärung:
-Die oben genannten Teammitglieder erklären an Eides statt:
+```shell
+clone https://github.com/Nekkohlas/Nekkohlas.github.io.git
+```
 
-Diese Arbeit wurde selbständig und eigenhändig erstellt. Die den benutzten Quellen wörtlich oder inhaltlich entommenen Stellen sind als solche kenntlich gemacht. Diese Erklärung gilt für jeglichen Inhalt und umfasst sowohl diese Dokumentation als auch den als Projektergebnis eingereichten Quellcode.
+**Step 2:** Führen sie das Kommando `run python -m venv .venv` aus:
 
-## Value proposition
+```shell
+python -m venv .venv
+```
 
-NiceNotes richtet sich an Schüler innen und Studierende und bietet eine Alternative zu physischen Notizen. Insbesondere vergessliche Nutzer innen können durch die digitale Speicherung maximal profitieren, da sie somit die Notizzettel nichtmehr verlieren können. Inspiriert durch Videospiele in denen man Erfahrungspunkte sammelt und eine Fortschrittanzeige hat, soll NiceNotes auf diesen Wege auch bei der Motivation helfen, indem der Fortschritt der User ersichtlich ist. Durch das füllen der Anzeige soll das Belohnungssystem aktiviert und somit der User angespornt werden, seine Aufgaben zu erledigen.  
+**Step 3:** Führen Sie das Activate Script aus: .venv\Scripts\Activate.[bat,ps1,sh - Abhängig von Ihrem System] `.venv\Scripts\Activate.__`:
 
-## App structure
+```shell
+.venv\Scripts\Activate.bat
+```
 
-Aufbau der App, ggf Diagramm
+```shell
+.venv\Scripts\Activate.ps1
+```
 
-## App behaviour
+```shell
+.venv\Scripts\Activate.sh
+```
 
-User walkthrough, ggf use case 
-## Data model
+**Step 4:** Führen Sie das Kommando aus python -m pip install -r requirements.txt
 
-This is the content of the Data model section.
-Darstellen, wie 
-## API reference
-Section / modules 
-This is the content of the API reference section.
+```shell
+python -m pip install -r requirements.txt
+```
 
-## Design decisions
+**Step 5:** Starten Sie den Webserver via:  flask run
+```shell
+flask run
+```
 
-This is the content of the Design decisions section.
 
-## User evaluation
+```shell
 
-This is the content of the User evaluation section.
+Created Database!
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ 
+```
 
-## Goals achieved and missed
-
-This is the content of the Goals achieved and missed section.
-
-## What I would improve in the future
-
-This is the content of the What I would improve in the future section.
-
-## Peer review
-
-This is the content of the Peer review section.
+**Step 6:** Besuchen Sie: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) um NiceNotes zu benutzen
